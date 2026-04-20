@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh.TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="0303練習" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .box01 {
+            border-radius: 20px;
+        }
+
+        /* 放在這裡 */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 1000px #222 inset !important;
+            -webkit-text-fill-color: #00ff00 !important;
+        }
+
+        /* 順便修復滑鼠點擊時的邊框顏色（如果會變白的話） */
+        .form-control:focus {
+            background-color: #222 !important;
+            color: #00ff00 !important;
+            box-shadow: none;
+            border-color: #00ff00 !important;
+        }
+    </style>
+</head>
+
+<body
+    style="background-color: #212529; color: #00ff00; font-family: 'Courier New', monospace; image-rendering: pixelated;">
+
+    <div class="container py-5">
+        <!-- 模擬復古遊戲視窗的邊框與陰影 -->
+        <form id="myform"
+            style="background: #000; border: 4px solid #fff; box-shadow: 10px 10px 0px #555; padding: 20px;">
+            <div class="row">
+                <div class="col-12">
+                    <!-- 標題區塊：像素塊狀背景 -->
+                    <div class="box01 title-01 p-3 my-4 fw-bold text-center"
+                        style="background-color: #ff00ff !important; color: #fff !important; border: 4px inset #fff; font-size: 24px; letter-spacing: 4px;">
+                        [ 飲料訂購系統 ]
+                    </div>
+
+                    <!-- 訂購者名稱 -->
+                    <div class="mb-4 form-floating">
+                        <input type="text" class="form-control" id="name" placeholder=""
+                            style="background: #222; border: 3px solid #00ff00; color: #00ff00; border-radius: 0; ">
+                        <label for="name" class="form-label" style="color: #00ff00;">&gt; PLAYER_NAME (2-5
+                            CHARS)</label>
+                        <div class="valid-feedback" style="font-size: 0.8rem;">[SUCCESS]: 符合規定</div>
+                        <div class="invalid-feedback" style="font-size: 0.8rem;">[ERROR]: 不符合規定</div>
+                    </div>
+
+                    <!-- 產品名稱 -->
+                    <div class="mb-4">
+                        <label for="production" class="form-label" style="color: #00ff00;">&gt; SELECT_ITEM</label>
+                        <input type="text" class="form-control" id="production" placeholder="字數(2-6字)" list="p_list"
+                            style="background: #222; border: 3px solid #00ff00; color: #00ff00; border-radius: 0;">
+                        <div class="valid-feedback" style="font-size: 0.8rem;">[SUCCESS]: 符合規定</div>
+                        <div class="invalid-feedback" style="font-size: 0.8rem;">[ERROR]: 不符合規定</div>
+                        <datalist id="p_list">
+                            <option value="紅茶">紅茶</option>
+                            <option value="綠茶">綠茶</option>
+                            <option value="奶茶">奶茶</option>
+                            <option value="烏龍茶">烏龍茶</option>
+                        </datalist>
+                    </div>
+
+                    <!-- 冰塊選擇 -->
+                    <div class="mb-4">
+                        <label class="form-label" style="color: #00ff00;">&gt; ICE_LEVEL</label>
+                        <select name="" id="whichice" class="form-select"
+                            style="background: #222; border: 3px solid #00ff00; color: #00ff00; border-radius: 0;">
+                            <option value="0" class="text-center" disabled selected>***** 請選擇冰塊 *****</option>
+                            <option value="全冰">全冰 [MAX]</option>
+                            <option value="少冰">少冰 [MID]</option>
+                            <option value="微冰">微冰 [MIN]</option>
+                            <option value="去冰">去冰 [ZERO]</option>
+                        </select>
+                        <div class="valid-feedback"></div>
+                        <div class="invalid-feedback">請選擇冰度</div>
+                    </div>
+
+                    <!-- 配料區塊 -->
+                    <div class="pt-3 fw-bold" style="color: #ffff00; border-bottom: 2px dashed #ffff00;">ADD_ONS(每樣10元):
+                    </div>
+                    <div class="d-flex flex-wrap gap-3">
+                        <div class="form-check pt-3">
+                            <input type="checkbox" name="sweet" id="item01" value='粉圓' class="form-check-input"
+                                style="border-radius: 0; border: 2px solid #00ff00; background-color: #000;">
+                            <label for="item01" class="form-check-label">粉圓</label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input type="checkbox" name="sweet" id="item02" value='QQ' class="form-check-input"
+                                style="border-radius: 0; border: 2px solid #00ff00; background-color: #000;">
+                            <label for="item02" class="form-check-label">QQ</label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input type="checkbox" name="sweet" id="item03" value='紅豆' class="form-check-input"
+                                style="border-radius: 0; border: 2px solid #00ff00; background-color: #000;">
+                            <label for="item03" class="form-check-label">紅豆</label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input type="checkbox" name="sweet" id="item04" value='綠豆' class="form-check-input"
+                                style="border-radius: 0; border: 2px solid #00ff00; background-color: #000;">
+                            <label for="item04" class="form-check-label">綠豆</label>
+                        </div>
+                    </div>
+
+                    <!-- 數量滑桿 01 -->
+                    <div class="pt-4">
+                        <label for="num01" class="form-label">
+                            數量: <span class="h2 fw-bold" id="num_text01" style="color: #00ff00;">50</span> 杯
+                        </label>
+                        <input type="range" class="form-range" id="num01" min="0" max="100" step="1"
+                            style="filter: hue-rotate(90deg);">
+                    </div>
+
+                    <!-- 數量滑桿 02 -->
+                    <div class="pt-3">
+                        <label for="num02" class="form-label">
+                            數量(每杯): <span class="h2 fw-bold" id="num_text02" style="color: #00ff00;">50</span> 元 |
+                            配料: <span class="h2 fw-bold" id="num_text021" style="color: #ffff00;">50</span> G
+                        </label>
+                        <input type="range" class="form-range" id="num02" min="0" max="100" step="1"
+                            style="filter: hue-rotate(180deg);">
+                    </div>
+
+                    <!-- 備註 -->
+                    <div class="mb-4 pt-3">
+                        <label for="" class="form-label" style="color: #00ff00;">&gt; MISSION_REMARK</label>
+                        <textarea name="" id="" class="form-control"
+                            style="background: #222; border: 3px solid #00ff00; color: #00ff00; border-radius: 0;"></textarea>
+                    </div>
+
+                    <!-- 總價顯示 -->
+                    <div class="pt-3 text-center" style="border: 4px double #ff0000; background: #200;">
+                        <label class="form-label mb-0">
+                            TOTAL_GOLD: <span class="h1 fw-bold" id="total"
+                                style="color: #ff0000; text-shadow: 2px 2px #fff;">50</span> G
+                        </label>
+                    </div>
+
+                    <!-- 按鈕 -->
+                    <div class="text-center mt-5">
+                        <button type="button" class="btn btn-outline-danger px-4 py-2 my-3 mx-2" id="btn"
+                            style="border-radius: 0; border: 4px solid #ff0000; font-weight: bold;">[ BACK ]</button>
+                        <button type="button" class="btn btn-success px-4 py-2 my-3 mx-2" id="ok_btn"
+                            style="border-radius: 0; border: 4px solid #fff; background-color: #008800; font-weight: bold;">[
+                            SUBMIT ]</button>
+                    </div>
+                    <div class="mt-5 d-none" id="order-area">
+                        <!-- 明細 -->
+                        <div class="box01 title-01 p-3 my-4 fw-bold text-center bg-warning"
+                            style="color: #000 !important; border: 4px solid #000;">
+                            ITEM STATUS
+                        </div>
+                        <div class="border border-3 p-3" id="show_list"
+                            style="border-style: solid !important; border-color: #fff !important;">
+                            <h1 style="font-size: 1.5rem;">STATUS: <span style="color: #00ffff;">XXXXXX</span></h1>
+
+                        </div>
+
+                        <div class="text-center my-3">
+                            <button type="button" class="btn btn-outline-success" id="order_btn"
+                                style="border-radius: 0; border: 4px solid #bb58b6; font-weight: bold;">確認訂單</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="css/jquery-4.0.0.js"></script>
+    <script>
+        $(function () {
+            let name = false;
+            let production = false;
+            let whichice = false;
+            let sweet_num = [];
+            let unitprice = 0;
+            let totalprice = 0;
+            let result = [];
+
+
+
+            // $("#myform").submit(function (e) {
+            //     if (name && production && whichice) {
+            //         e.preventDefault();
+            //         console.log("form觸發!!!!!!!!!!");
+            //         console.log($("#name").val());
+            //         console.log($("#production").val());
+            //         console.log($("#whichice").val());
+            //     } else {
+            //         e.preventDefault();
+            //         alert("欄位有錯誤, 請修正");
+            //     }
+
+
+            // });
+
+            $("#name").blur(function () {
+                //console.log($(this).val().length);
+                if ($(this).val().length > 1 && $(this).val().length < 6) {
+                    //符合規定
+                    // console.log($(this).val());
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    name = true;
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    name = false;
+                }
+
+            });
+
+            $("#production").blur(function () {
+                //console.log($(this).val().length);
+                if ($(this).val().length > 1 && $(this).val().length < 7) {
+                    //符合規定
+                    // console.log($(this).val());
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    production = true;
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    production = false;
+                }
+
+            });
+
+
+
+            $("#whichice").blur(function () {
+                if ($(this).val()) {
+                    // console.log($(this).val());
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    whichice = true;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    whichice = false;
+                }
+
+
+            });
+
+
+            $("input[name='sweet'][value='粉圓']").prop("checked", true);
+            $("input[name='sweet'][value='QQ']").prop("checked", true);
+            $("input[name='sweet'][value='紅豆']").prop("checked", true);
+            $("input[name='sweet'][value='綠豆']").prop("checked", true);
+
+
+
+            $("#num01").on("input", function () {
+                // console.log($(this).val());
+                $("#num_text01").text($(this).val());
+            })
+
+            $("#num02").on("input", function () {
+                // console.log($(this).val());
+                $("#num_text02").text($(this).val());
+
+                //計算配料價格
+                sweet_num = [];
+                $("input[name='sweet']:checked").each(function () {
+                    sweet_num.push($(this).val());
+                });
+                // console.log(sweet_num);
+                $("#num_text021").text(sweet_num.length * 10);
+
+                unitprice = Number($(this).val()) + Number(sweet_num.length * 10);
+                // console.log(unitprice);
+
+
+                totalprice = $("#num01").val() * unitprice;
+                $("#total").text(totalprice);
+            })
+
+
+
+
+            $("#ok_btn").click(function () {
+
+                $("input[name='sweet']:checked").each(function () {
+                    // console.log($(this).val());
+                    result.push($(this).val());
+                });
+
+
+
+                if (name && production && whichice && result.length != 0) {
+                    let strHTML = `<h1>訂購人名稱: ${$("#name").val()}</h1>
+                                       <h1>產品名稱: ${$("#production").val()}</h1>
+                                       <h1>冰度: ${$("#whichice").val()}</h1>
+                                       <h1>配料: ${sweet_num.join(", ")}</h1>
+                                       <h1>單價: ${$("#num02").val()} 元 配料價錢: ${sweet_num.length * 10} 元</h1>
+                                       <h1>杯數: ${$("#num01").val()} 杯</h1>
+                                       <h1>總價格: ${totalprice}</h1>`;
+                    $("#show_list").html(strHTML);
+                    $("#order-area").removeClass('d-none');
+
+                } else {
+                    alert("有缺失");
+                }
+
+            });
+
+            $("#order_btn").click(function () {
+                let orderData = {
+                    customerName: $("#name").val(),
+                    itemName: $("#production").val(),
+                    iceLevel: $("#whichice").val(),
+                    toppings: sweet_num,
+                    quantity: $("#num01").val(),
+                    unitPrice: $("#num02").val(),
+                    totalAmount: totalprice,
+                    createTime: new Date().toLocaleString()
+
+                };
+                console.log(orderData);
+                console.log(JSON.stringify(orderData));
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/order",
+                    contentType: "application/json",
+                    data: JSON.stringify(orderData),
+                    success: function (data) {
+                        Swal.fire({
+                            title: "新增成功",
+                            showDenyButton: false,
+                            showCancelButton: false,
+                            confirmButtonText: "確認",
+                            denyButtonText: `Don't save`
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $("#order-area").addClass('d-none');
+                            } 
+                        });
+                    },
+                    error: function () {
+                        alert("新增失敗");
+                    }
+                });
+            });
+
+        });
+    </script>
+
+
+
+</body>
+
+</html>

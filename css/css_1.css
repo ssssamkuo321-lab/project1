@@ -1,0 +1,165 @@
+/* 字型 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+body{
+    font-family: "Noto Sans TC", sans-serif;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+body{
+    font-family: "DotGothic16", sans-serif;
+} */
+
+
+
+/* 顏色 */
+:root{
+    --mycolor01: #fadeef;
+    --mycolor02: #a8e8f3;
+    --mycolor03: #facbcb;
+
+    /* 原有顏色 */
+    --mycolor04: #ccd3d9; /* 晨曦灰 (Sky Mist) */
+    --mycolor05: #fed5d9; /* 盛開粉 (Petal Pink) */
+    --mycolor06: #7e212c; /* 胭脂紅 (Deep Rose) */
+    --mycolor07: #321e17; /* 肥沃土 (Rich Earth) */
+
+    /* 新生成顏色 */
+    --mycolor08: #fdf2d0; /* 暖陽花蕊 (Pollen Yellow) - 柔和的淺黃色 */
+    --mycolor09: #9ab4a3; /* 灰綠嫩葉 (Dusty Sage) - 帶灰調的自然綠 */
+    --mycolor10: #d4a373; /* 枯木枝椏 (Dried Branch) - 溫暖的淺木色 */
+    --mycolor11: #b08991; /* 晚霞花影 (Muted Mauve) - 灰紫色調的過渡色 */
+    --mycolor12: #4a5d4e; /* 幽靜深林 (Forest Shade) - 深沉的葉脈綠 */
+    --mycolor13: #f8f9fa; /* 露珠純白 (Dewdrop White) - 接近白的極淺灰色 */
+
+}
+
+/* 文字相關 */
+.fw-100{
+    font-weight: 100;
+}
+.fw-200{
+    font-weight: 200;
+}
+.fw-300{
+    font-weight: 300;
+}
+.fw-400{
+    font-weight: 400;
+}
+.fw-500{
+    font-weight: 500;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fw-700{
+    font-weight: 700;
+}
+.fw-800{
+    font-weight: 800;
+}
+.fw-900{
+    font-weight: 900;
+}
+
+.title-01{
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--mycolor06);
+    text-shadow: 
+        2px 2px var(--mycolor03),
+        4px 4px 8px rgba(0, 0, 0, 0.4);
+    letter-spacing: 3px;
+}
+.title-02{
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--mycolor10);
+}
+
+.title-03 {
+    font-family: "Courier New", monospace; /* 模擬等寬像素字體 */
+    font-size: 64px;
+    font-weight: 900;
+    
+    /* 文字主色：經典遊戲黃 */
+    color: #FFD700; 
+    
+    /* 8-bit 立體層次：利用連續的 2px 倍數位移，且模糊度設為 0px */
+    text-shadow: 
+        2px 2px 0px #C0392B,  /* 第一層：深紅（模擬厚度） */
+        4px 4px 0px #2C3E50;  /* 第二層：深藍黑（模擬最底層陰影） */
+    
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.title-04 {
+    font-size: 36px;
+    font-weight: 400;
+    font-family: "Courier New", monospace;
+    
+    /* 文字主色：紅白機控制器的淡色 */
+    color: #ECF0F1; 
+    
+    /* 單層像素描邊感 */
+    text-shadow: 2px 2px 0px #222222;
+    
+    letter-spacing: 2px;
+}
+
+
+
+/* L - 方向（向右滑入） */
+.rollerl { position: relative; overflow: hidden }
+.rollerl .rollerl_box {
+    position: absolute; width: 100%; height: 100%;
+    /* 復古綠色螢幕感 + 掃描線 */
+    background: repeating-linear-gradient(0deg, rgba(0,255,0,0.1) 0px, rgba(0,255,0,0.1) 1px, transparent 1px, transparent 2px),
+                linear-gradient(40deg, rgba(0, 40, 0, 0.9), rgba(0, 180, 0, 0.7));
+    left: -100%;
+    display: flex; align-items: center; justify-content: center;
+    transition: left 0.3s cubic-bezier(0.17, 0.67, 0.46, 1.2); /* 加速並帶有微回彈 */
+    border-right: 4px solid #00ff00; 
+}
+.rollerl:hover .rollerl_box { left: 0 }
+
+/* R - 方向（向左滑入） */
+.rollerr { position: relative; overflow: hidden; }
+.rollerr .rollerr_box {
+    position: absolute; width: 100%; height: 100%;
+    /* 經典警告紅 + 點陣感 */
+    background: radial-gradient(circle, rgba(255,0,0,0.2) 20%, transparent 20%) 0 0/4px 4px,
+                linear-gradient(40deg, rgba(100, 0, 0, 0.9), rgba(255, 0, 0, 0.7));
+    right: -100%;
+    display: flex; align-items: center; justify-content: center;
+    transition: right 0.3s cubic-bezier(0.17, 0.67, 0.46, 1.2);
+    border-left: 4px solid #ff0000;
+}
+.rollerr:hover .rollerr_box { right: 0 }
+
+/* B - 方向（向上滑入） */
+.rollerb { position: relative; overflow: hidden; }
+.rollerb .rollerb_box {
+    position: absolute; width: 100%; height: 100%;
+    /* 像素藍 + 霓虹發光 */
+    background: linear-gradient(40deg, rgba(0, 0, 150, 0.9), rgba(0, 200, 255, 0.7));
+    bottom: -100%;
+    display: flex; align-items: center; justify-content: center;
+    transition: bottom 0.3s cubic-bezier(0.17, 0.67, 0.46, 1.2);
+    border-top: 4px solid #00d9ff;
+}
+.rollerb:hover .rollerb_box { bottom: 0 }
+
+/* T - 方向（向下滑入） */
+.rollert { position: relative; overflow: hidden; }
+.rollert .rollert_box {
+    position: absolute; width: 100%; height: 100%;
+    /* 黃黑相間警告條感 (常用於 Boss 出現) */
+    background: repeating-linear-gradient(-45deg, rgba(255,200,0,0.8), rgba(255,200,0,0.8) 10px, rgba(0,0,0,0.8) 10px, rgba(0,0,0,0.8) 20px);
+    top: -100%;
+    display: flex; align-items: center; justify-content: center;
+    transition: top 0.3s cubic-bezier(0.17, 0.67, 0.46, 1.2);
+    border-bottom: 4px solid #ffcc00;
+}
+.rollert:hover .rollert_box { top: 0 }

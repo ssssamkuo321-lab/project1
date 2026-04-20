@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh.TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+    <style>
+        .context_box{
+            margin-top: 10px;
+            box-shadow: 1px 2px 2px 3px #9e9a9a;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+            
+    </style>
+</head>
+<body>
+    <div class="title-01 text-center">地方美食</div>
+    <div class="container">
+        <div class="row" id="mybody">
+            <div class="col-md-12 col-lg-6 col-xl-4">
+                <div class=" context_box rollerl">
+                    <div class=" rollerl_box">
+                        <button class="btn btn-danger">查看更多</button>
+                    </div>
+                    <div  
+                        style="background-image: url(images/photo-1472491235688-bdc81a63246e.avif); height: 160px; background-position: center center; background-size: cover; box-shadow: 1px 2px 3px #7a7878;">
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <div class=" h3 text-center fw-900">餐廳名稱</div>
+                    </div>
+                    <div class="h5">電話:xxxxxxxx</div>
+                    <div class="h5">地址:xxxxxxxx</div>
+                    <p>無論不願你說，頻道藍色告訴你，目錄名單病毒風雲電視爸爸，此。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="css/jquery-4.0.0.js"></script>
+    <script>
+        $(function(){
+            $.ajax({
+                type: "GET",
+                url: "css/TravelFood.json",
+                dataType: "json",
+                success: showdata,
+                error: function () {
+                    console.log("error - css/TravelFood.json");
+                }
+            });
+        });
+
+        function showdata(data){
+            $("#mybody").empty();
+            console.log(data);
+            data.forEach(function (item) {
+                // console.log(item.Name);
+                // console.log("地址:" + item.City + item.Town + item.Address);
+
+                //資料防呆
+
+                // let id = item.sno ? item.sno : "編號未知";
+                // let name = item.sna ? item.sna : "名稱未知";
+                // let address = item.sarea + item.ar;
+                // if (!item.sarea || !item.ar) {
+                //     address = "地址未知"
+                // };
+                // let total = item.Quantity ? item.Quantity : "總數未知";
+                // let rent_num = item.available_rent_bikes ? item.available_rent_bikes : "可借數量未知";
+                // let return_num = item.available_return_bikes ? item.available_return_bikes : "可歸還數量未知";
+                // let updateTime = item.updateTime ? item.updateTime : "更新時間未知";
+
+                let pic = item.PicURL ? item.PicURL : "images/photo-1472491235688-bdc81a63246e.avif";
+                let name = item.Name ? item.Name : "名稱未知";
+                let tel = item.Tel ? item.Tel : "電話未知";
+                let address = item.City + item.Town + item.Address;
+                if (!item.City || !item.Town || !item.Address) {
+                    address = "地址未知";
+                };
+                let HW = item.HostWords ? item.HostWords.substring(0,30) : "未提供簡介";
+
+                let str_html = `<div class="col-md-12 col-lg-6 col-xl-4">
+                                    <div class=" context_box rollerl">
+                                        <div class="rollerl_box">
+                                            <button class="btn btn-danger">查看更多</button>
+                                        </div>
+                                        <div  
+                                            style="background-image: url('${pic}'); height: 160px; background-position: center center; background-size: cover; box-shadow: 1px 2px 3px #7a7878;">
+                                        </div>
+                                        <div style="margin-top: 10px;">
+                                            <div class=" h3 text-center fw-900">${name}</div>
+                                        </div>
+                                        <div class="h5">電話:${tel}</div>
+                                        <div class="h5">地址:${address}</div>
+                                        <p>${HW}</p>
+                                    </div>
+                                </div>`;
+
+                $("#mybody").append(str_html);
+            });
+        }
+    </script>
+</body>
+</html>

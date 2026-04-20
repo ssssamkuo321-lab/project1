@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML and CSS</title>
+    <style>
+        .box {
+            /* shift alt f 自動排版 */
+            width: 200px;
+            height: 200px;
+            background-color: #5a1a5a;
+            /* color #ffffff 兩兩一對 前二R 依此類推 G B */
+            border-radius: 10px;
+            /* 圓角 */
+            box-shadow: 2px 2px 2px 2px #1a191a;
+            /* 陰影 */
+            /* padding: 30px; */
+            /* 內距 */
+            box-sizing: border-box;
+            /* padding 往內推x px box-sizing 固定大小 使padding不會讓框架變形 */
+            color: rgb(125, 192, 170);
+            font-size: 24px;
+            text-align: center;
+            /* 字的水平位置 */
+            line-height: 200px;
+
+            margin: 30px;
+            /* 外距 */
+        }
+
+        .box:hover{
+            background-color: #cfa1cf;
+            color: rgb(13, 44, 34);
+            box-shadow: 0px 0px 0px 0px #302e30;
+            transform: scale(0.98);
+            /* 改變大小 */
+            transition: transform 0.1s;
+            /* 變化時間 */
+
+        }
+    </style>
+
+</head>
+
+
+
+
+<body>
+    <div class="box">取消本人</div>
+
+
+
+
+
+</body>
+
+</html>

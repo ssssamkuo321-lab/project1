@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格2</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+
+    <style>
+        @media screen and (max-width: 768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: solid var(--mycolor05);
+                margin-top: 10px;
+            }
+
+            .table-rwd tbody tr {
+                display: flex;
+                flex-direction: column;
+                /* 保持垂直排列 */
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                /* overflow: hidden; */
+
+            }
+
+            .table-rwd tbody tr td::before {
+                content: attr(data-th) "：";
+                font-size: 20px;
+                font-weight: 900;
+                float: left;
+                width: 30%;
+                text-align: right;
+                padding-right: 1em;
+            }
+
+            .table-rwd tbody tr td[data-th="商品圖片"] {
+                order: -1;
+                /* 負數會讓它排在所有 0 (預設值) 之前 */
+            }
+
+            .table-rwd tbody tr td[data-th="商品編號"] {
+                order: 0;
+            }
+
+            .table-rwd tbody tr td span{
+                display: block;
+                float: left;
+                width: 70%;
+            }
+             
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="title-04 text-center ">表格</div>
+        <table class="table  table-rwd">
+            <thead class="table-dark">
+                <tr>
+                    <th>商品編號</th>
+                    <th>商品圖片</th>
+                    <th>商品名稱</th>
+                    <th>商品價格</th>
+                    <th>商品數量</th>
+                    <th>商品備註</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="">
+                    <td data-th="商品編號"><span>001</span></td>
+                    <td data-th="商品圖片">
+                        <span>
+                            <img src="images/1084-536x354-grayscale.jpg" width="200px" alt="">
+                        </span>
+                    </td>
+                    <td data-th="商品名稱"><span>xxx</span></td>
+                    <td data-th="商品價格"><span>xxx</span></td>
+                    <td data-th="商品數量"><span>xxx</span></td>
+                    <td data-th="商品備註">
+                        <span>
+                            空中基隆效率臨床沒有什麼，文件大小好友準備一陣不少你怎不來第二之中傷心傳說一顆監督室內，許多各級網際快車或者認真衛生一番過來不過以及網頁通常工廠，一隻感情用戶名閲讀試驗我都上有人生重量開關公開本網黑暗飲食，當天而來武器婚姻對面材料建材先進教育青春廣場根本。
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr class="">
+                    <td data-th="商品編號">001</td>
+                    <td data-th="商品圖片">
+                        <img src="images/1084-536x354-grayscale.jpg" width="200px" alt="">
+                    </td>
+                    <td data-th="商品名稱">xxx</td>
+                    <td data-th="商品價格">xxx</td>
+                    <td data-th="商品數量">xxx</td>
+                    <td data-th="商品備註">xxx</td>
+                </tr>
+            </tbody>
+            <tbody>
+                  <tr class="table-danger">
+                    <td data-th="商品編號">001</td>
+                    <td data-th="商品圖片">
+                        <img src="images/1084-536x354-grayscale.jpg" width="200px" alt="">
+                    </td>
+                    <td data-th="商品名稱">xxx</td>
+                    <td data-th="商品價格">xxx</td>
+                    <td data-th="商品數量">xxx</td>
+                    <td data-th="商品備註">xxx</td>
+                </tr>
+            </tbody>
+            <tbody>
+               <tr class="table-danger">
+                    <td data-th="商品編號">001</td>
+                    <td data-th="商品圖片">
+                        <img src="images/1084-536x354-grayscale.jpg" width="200px" alt="">
+                    </td>
+                    <td data-th="商品名稱">xxx</td>
+                    <td data-th="商品價格">xxx</td>
+                    <td data-th="商品數量">xxx</td>
+                    <td data-th="商品備註">xxx</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

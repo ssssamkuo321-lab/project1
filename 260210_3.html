@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh.TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+    <style>
+        .box01 img{
+            height: 120px;
+            width: 100%;
+            object-fit: cover; /* 關鍵：圖片會自動充滿容器並裁切多餘部分，不會被壓扁 */
+            object-position: center; /* 選擇性：確保裁切時以中心點為主 */
+            background-color: var(--mycolor03);
+            margin-top: 10px;
+            font-size: 56px;
+            line-height: 120px;
+        }
+
+        .box01 h1{
+            height: 120px;
+            width: 100%;
+
+            background-color: var(--mycolor03);
+            margin-top: 10px;
+            font-size: 56px;
+            line-height: 120px;
+        }
+        .box02{
+            height: 180px;
+            width: 180px;
+            background-color: var(--mycolor03);
+            margin-top: 10px;
+            font-size: 56px;
+            line-height: 180px;
+            border-radius: 240px;
+        }
+        .box03{
+
+            padding: 10px;
+            background-color: var(--mycolor03);
+            margin-top: 10px;
+
+
+        }
+
+        .box03 .h3{
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .roller {
+            position: relative;
+            overflow: hidden;
+            /* 增加一個微妙的內陰影，模擬老式螢幕的框架感 */
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        .roller .roller_box{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            left: -100%;
+        }
+        
+        .roller:hover .roller_box{
+            left: 0;
+            transition: left 0s;
+        }
+
+        .roller .roller_box2 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /* 修改點 1：使用更具「街機霓虹感」的高飽和度漸層，並加入掃描線條紋感 */
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(255, 0, 255, 0.15) 0px,
+                rgba(255, 0, 255, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            ), 
+            linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(60, 0, 120, 0.8));
+            
+            right: -100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            /* 修改點 2：2秒太慢了，電玩感要動感。使用 cubic-bezier 模擬彈跳或機械感 */
+            /* 這裡使用 power-start 或 back-out 效果 */
+            transition: right 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            
+            /* 修改點 3：增加邊框，強化 8-bit 的硬邊邊界感 */
+            border-left: 4px solid #00f0ff;
+            box-sizing: border-box;
+        }
+
+        .roller:hover .roller_box2 {
+            right: 0;
+            /* 修改點 4：Hover 時增加一點發光感 (Glow) */
+            box-shadow: -5px 0 15px rgba(0, 240, 255, 0.5);
+        }
+
+        
+        @media screen and (max-width: 991px) {
+            .table-rwd .box02 {
+                height: 120px;
+                width: 100%;
+                background-color: var(--mycolor03);
+                margin-top: 10px;
+                font-size: 56px;
+                line-height: 120px;
+                border-radius: 0px;
+            }
+
+
+
+            .table-rwd .roller {
+                overflow: visible !important; /* 讓內容露出來 */
+                position: static !important; /* 或是 relative，取消原本可能影響子層的定位 */
+
+            }
+
+            .table-rwd .roller .roller_box {
+                display: none !important;
+            }
+
+            .table-rwd .roller .roller_box2 {
+                display: none !important;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: solid var(--mycolor05);
+                margin-top: 10px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td::before {
+                content: attr(data-th) "：";
+                font-size: 16px;
+                font-weight: 900;
+                float: left;
+                width: 30%;
+                text-align: right;
+                padding-right: 1em;
+                display: block;
+            }
+        }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container-lg text-center table-rwd">
+        <div class="row">
+            <div class="col-12 d-none d-sm-block">
+                <div class="box01 bg-cover">
+                    <img src="images/photo-1472491235688-bdc81a63246e.avif " class="img-fluid alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="box02 bg-danger roller">
+                    <div class="roller_box">
+                    </div>
+                    456
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="box02 bg-danger roller">
+                    <div class="roller_box">
+                    </div>
+                    456
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="box02 bg-danger roller">
+                    <div class="roller_box">
+                    </div>
+                    456
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="box02 bg-danger roller">
+                    <div class="roller_box">
+                    </div>
+                    456
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="box03 bg-danger rollerl">
+                    <div class="rollerl_box">
+                        <button class="btn btn-warning">查看更多</button>
+                    </div>
+                    <img src="images/photo-1495360010541-f48722b34f7d.avif" class="img-fluid" alt="">
+                    <h1>
+                        123
+                    </h1>
+                    <p>千萬一邊背後眼淚包含氣息大量文本基金官方市場旅遊公斤白色實施，幾個更好關係眼神打算很少他還地球戰爭不想過了很快轉換體系，什麼出了第一章，魯蛇歌曲解壓密碼，沒有任何審核更大，絶對版權小組也可，演員球員他的推動建議大小點頭中學股票，密碼狀態，影視而且無奈，差。</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+               <div class="box03 bg-danger rollerr">
+                    <div class="rollerr_box">
+                        <button class="btn btn-warning">查看更多</button>
+                    </div>
+                    <img src="images/photo-1495360010541-f48722b34f7d.avif" class="img-fluid" alt="">
+                    <h1>
+                        123
+                    </h1>
+                    <p>千萬一邊背後眼淚包含氣息大量文本基金官方市場旅遊公斤白色實施，幾個更好關係眼神打算很少他還地球戰爭不想過了很快轉換體系，什麼出了第一章，魯蛇歌曲解壓密碼，沒有任何審核更大，絶對版權小組也可，演員球員他的推動建議大小點頭中學股票，密碼狀態，影視而且無奈，差。</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+               <div class="box03 bg-danger rollert">
+                    <div class="rollert_box">
+                        <button class="btn btn-warning">查看更多</button>
+                    </div>
+                    <img src="images/photo-1495360010541-f48722b34f7d.avif" class="img-fluid" alt="">
+                    <h1>
+                        123
+                    </h1>
+                    <p>千萬一邊背後眼淚包含氣息大量文本基金官方市場旅遊公斤白色實施，幾個更好關係眼神打算很少他還地球戰爭不想過了很快轉換體系，什麼出了第一章，魯蛇歌曲解壓密碼，沒有任何審核更大，絶對版權小組也可，演員球員他的推動建議大小點頭中學股票，密碼狀態，影視而且無奈，差。</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+               <div class="box03 bg-danger rollerb">
+                    <div class="rollerb_box">
+                        <button class="btn btn-warning">查看更多</button>
+                    </div>
+                    <img src="images/photo-1495360010541-f48722b34f7d.avif" class="img-fluid" alt="">
+                    <h1>
+                        123
+                    </h1>
+                    <p>千萬一邊背後眼淚包含氣息大量文本基金官方市場旅遊公斤白色實施，幾個更好關係眼神打算很少他還地球戰爭不想過了很快轉換體系，什麼出了第一章，魯蛇歌曲解壓密碼，沒有任何審核更大，絶對版權小組也可，演員球員他的推動建議大小點頭中學股票，密碼狀態，影視而且無奈，差。</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+               <div class="box03 bg-danger roller">
+                    <div class="roller_box2">
+                        <button class="btn btn-warning">查看更多</button>
+                    </div>
+                    <img src="images/photo-1495360010541-f48722b34f7d.avif" class="img-fluid" alt="">
+                    <h1>
+                        123
+                    </h1>
+                    <p>千萬一邊背後眼淚包含氣息大量文本基金官方市場旅遊公斤白色實施，幾個更好關係眼神打算很少他還地球戰爭不想過了很快轉換體系，什麼出了第一章，魯蛇歌曲解壓密碼，沒有任何審核更大，絶對版權小組也可，演員球員他的推動建議大小點頭中學股票，密碼狀態，影視而且無奈，差。</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+               <div class="box03 bg-danger roller">
+                    <div class="roller_box2">
+                        <button class="btn btn-warning">查看更多</button>
+                    </div>
+                    <img src="images/photo-1495360010541-f48722b34f7d.avif" class="img-fluid" alt="">
+                    <h1>
+                        123
+                    </h1>
+                    <p>千萬一邊背後眼淚包含氣息大量文本基金官方市場旅遊公斤白色實施，幾個更好關係眼神打算很少他還地球戰爭不想過了很快轉換體系，什麼出了第一章，魯蛇歌曲解壓密碼，沒有任何審核更大，絶對版權小組也可，演員球員他的推動建議大小點頭中學股票，密碼狀態，影視而且無奈，差。</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-none d-sm-block">
+                <div class="box01 bg-danger">
+                    <h1>foooooooter</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="css/jquery-4.0.0.js"></script>
+</body>
+</html>

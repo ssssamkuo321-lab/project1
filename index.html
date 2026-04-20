@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<style>
+    .section01 {
+        background-color: var(--mycolor01);
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        /* 確保裝飾元素不溢出 */
+    }
+
+    /* 1. 將方塊改為 L 型邊框裝飾，更有設計感 */
+    .section01 [class^="box"] {
+        width: 150px;
+        height: 150px;
+        border: 6px solid var(--mycolor09);
+        position: absolute;
+        z-index: 2;
+        transition: all 0.3s ease;
+    }
+
+    .section01 .box01 {
+        top: 40px;
+        left: 40px;
+        border-right: none;
+        border-bottom: none;
+    }
+
+    .section01 .box02 {
+        top: 40px;
+        right: 40px;
+        border-left: none;
+        border-bottom: none;
+    }
+
+    .section01 .box03 {
+        bottom: 40px;
+        left: 40px;
+        border-right: none;
+        border-top: none;
+    }
+
+    .section01 .box04 {
+        bottom: 40px;
+        right: 40px;
+        border-left: none;
+        border-top: none;
+    }
+
+    /* 2. Logo 層優化邊界與視覺感 */
+    .logo {
+        position: absolute;
+        top: 85px;
+        /* 稍微縮小一點點，露出角落 L 框 */
+        bottom: 85px;
+        left: 85px;
+        right: 85px;
+        background-image: url(images/05.jpg);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
+        /* 內陰影讓中間文字更顯眼 */
+    }
+
+    /* 3. 文字區塊改用「毛玻璃」質感 */
+    .user_text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #ffffff;
+        /* 改用透明背景 + 模糊效果 */
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 40px 60px;
+        border-radius: 4px;
+        /* 改為小圓角更洗鍊 */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        z-index: 10;
+    }
+
+    .user_text h1 {
+        font-size: 80px;
+        /* 稍微調整字體大小 */
+        margin-bottom: 10px;
+        letter-spacing: 10px;
+        /* 增加字距 */
+        font-weight: 900;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .user_text hr {
+        width: 80px;
+        border: none;
+        height: 3px;
+        background-color: var(--mycolor09);
+        margin: 20px auto;
+        opacity: 1;
+    }
+
+    .user_text p {
+        font-size: 24px;
+        letter-spacing: 5px;
+    }
+
+    .section02 {
+        background-color: var(--mycolor13);
+        padding: 50px 0;
+        height: auto;
+        /* 讓高度隨內容增加 */
+    }
+
+    .circle-item {
+        width: 250px;
+        height: 250px;
+        background-color: var(--mycolor11);
+        border-radius: 50%;
+        margin: 0 auto;
+        overflow: hidden;
+        /* 隱藏捲出範圍的文字 */
+        position: relative;
+        border: 3px solid var(--mycolor01);
+    }
+
+    /* 內容包裝層：用來做上下位移 */
+    .circle-content {
+        width: 100%;
+        height: 200%;
+        /* 高度兩倍，一半放標題，一半放說明 */
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.5s ease-in-out;
+        text-decoration: none;
+        /* 滾動動畫 */
+    }
+
+    /* 當滑鼠移入時，內容向上推 50% */
+    .circle-item:hover .circle-content {
+        transform: translateY(-50%);
+    }
+
+    /* 標題與說明文字的通用樣式 */
+    .item-title,
+    .item-desc,
+    .item-desc1 {
+        height: 250px;
+        /* 撐滿圓圈高度 */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    /* 標題樣式 */
+    .item-title {
+        background-color: var(--mycolor10);
+        font-size: 28px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    /* 說明文字樣式 */
+    .item-desc {
+        background-color: var(--mycolor12);
+        font-size: 32px;
+        color: #f0f0f0;
+        text-decoration: none;
+    }
+
+    .item-desc1 {
+        background-color: var(--mycolor12);
+        font-size: 24px;
+        color: #f0f0f0;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <div class="section01">
+        <div class="box01"></div>
+        <div class="box02"></div>
+        <div class="box03"></div>
+        <div class="box04"></div>
+        <div class="logo bg-cover"></div>
+        <div class="user_text">
+            <h1>作品蒐集</h1>
+            <hr>
+            <h2></h2>
+            <p></p>
+        </div>
+
+    </div>
+
+
+    <div class="container section02">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260127_2.html" class="circle-content">
+                        <div class="item-title">
+                            作品集一
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/01/27
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260203_3.html" class="circle-content">
+                        <div class="item-title">
+                            作品集二
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/02/03
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260205-3.html" class="circle-content">
+                        <div class="item-title">
+                            作品集三
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/02/05
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260210_3.html" class="circle-content">
+                        <div class="item-title">
+                            作品集四
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/02/10
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260212.html" class="circle-content">
+                        <div class="item-title">
+                            作品集五
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/02/12
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260224_3.html" class="circle-content">
+                        <div class="item-title">
+                            作品集六
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/02/24
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260224_4.html" class="circle-content">
+                        <div class="item-title">
+                            作品集七
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/02/26
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260303_json-server.html" class="circle-content">
+                        <div class="item-title">
+                            作品集八
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/03/03<br>
+                            json-server
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260310_CRUD_index.html" class="circle-content">
+                        <div class="item-title">
+                            作品集九
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/03/10<br>
+                            CRUD_index
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260310_CRUD_showtable.html" class="circle-content">
+                        <div class="item-title">
+                            作品集十
+                        </div>
+                        <div class="item-desc1">
+                            日期<br>
+                            26/03/10<br>
+                            CRUD_showtable
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260317_3.html" class="circle-content">
+                        <div class="item-title">
+                            作品集十一
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/03/10<br>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260331.html" class="circle-content">
+                        <div class="item-title">
+                            作品集十二
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/03/31<br>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260402.html" class="circle-content">
+                        <div class="item-title">
+                            作品集十三
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/04/02<br>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260407.html" class="circle-content">
+                        <div class="item-title">
+                            作品集十四
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/04/07<br>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260409_SPA.html" class="circle-content">
+                        <div class="item-title">
+                            作品集十五
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/04/09<br>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="circle-item">
+                    <a href="260414_hw.html" class="circle-content">
+                        <div class="item-title">
+                            作品集十六
+                        </div>
+                        <div class="item-desc">
+                            日期<br>
+                            26/04/14<br>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="css/jquery-4.0.0.js"></script>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格2</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+
+    <style>
+        .table thead tr th{
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .table img{
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 1px #757474;
+        }
+
+        @media screen and (max-width: 768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: solid var(--mycolor05);
+                margin-top: 10px;
+            }
+
+            .table-rwd tbody tr {
+                display: flex;
+                flex-direction: column;
+                /* 保持垂直排列 */
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                /* overflow: hidden; */
+
+            }
+
+            .table-rwd tbody tr td::before {
+                content: attr(data-th) "：";
+                font-size: 16px;
+                font-weight: 900;
+                float: left;
+                width: 30%;
+                text-align: right;
+                padding-right: 1em;
+            }
+
+            .table-rwd img {
+                display: block;
+                margin: 0 auto;
+                /* 圖片專用的水平置中法 */
+                max-width: 100%;
+                /* 防止圖片爆框 */
+                height: auto;
+            }
+
+            .table-rwd tbody tr td[data-th="店家圖片"] {
+                order: -1;
+                /* 負數會讓它排在所有 0 (預設值) 之前 */
+            }
+
+            .table-rwd tbody tr td[data-th="店家編號"] {
+                order: 0;
+            }
+
+            .table-rwd tbody tr td span {
+                display: block;
+                float: left;
+                width: 70%;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="title-04 text-center" id="mytitle">表格</div>
+        <table class="table  table-rwd">
+            <thead class="table-dark">
+                <tr>
+                    <th>店家編號</th>
+                    <th>店家圖片</th>
+                    <th>店家名稱</th>
+                    <th>店家地址</th>
+                    <th>店家電話</th>
+                    <th>店家簡介</th>
+                </tr>
+            </thead>
+            <tbody id="mybody">
+                <tr class="">
+                    <td data-th="店家編號"><span>001</span></td>
+                    <td data-th="店家圖片">
+                        <span>
+                            <img src="images/1084-536x354-grayscale.jpg" width="200px" alt="">
+                        </span>
+                    </td>
+                    <td data-th="店家名稱"><span>xxx</span></td>
+                    <td data-th="店家地址"><span>xxx</span></td>
+                    <td data-th="店家電話"><span>xxx</span></td>
+                    <td data-th="店家簡介">
+                        <span>
+                            空中基隆效率臨床沒有什麼，文件大小好友準備一陣不少你怎不來第二之中傷心傳說一顆監督室內，許多各級網際快車或者認真衛生一番過來不過以及網頁通常工廠，一隻感情用戶名閲讀試驗我都上有人生重量開關公開本網黑暗飲食，當天而來武器婚姻對面材料建材先進教育青春廣場根本。
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="css/jquery-4.0.0.js"></script>
+
+    <script>
+        // 主程式
+        $(function () {
+            console.log("hello world");
+
+            $("#mytitle").html("地方美食店家列表");
+
+            //串接opendata
+            $.ajax({
+                type: "GET",
+                url: "https://data.moa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx?IsTransData=1&UnitId=193",
+                dataType: "json",
+                success: showdata,
+                error: function () {
+                    console.log("連結錯誤");
+                }
+            });
+
+        });
+
+
+
+        function showdata(data) {
+            $("#mybody").empty();
+            console.log(data);
+            data.forEach(function (item) {
+                // console.log(item.Name);
+                // console.log("地址:" + item.City + item.Town + item.Address);
+
+                //資料防呆
+
+                let id = item.ID ? item.ID : "未提供編號";
+                let img = item.PicURL ? item.PicURL : "images/photo-1472491235688-bdc81a63246e.avif";
+                let name = item.Name ? item.Name : "未提供名稱";
+                // let address = item.City || item.Town || item.Address ? "未提供地址";
+                let address = item.City + item.Town + item.Address;
+                if(!item.City || !item.Town || !item.Address)
+                {
+                    address = "未提供地址"
+                };
+
+                let tel = item.Tel ? item.Tel : "未提供電話";
+                let hostword = item.HostWords ? item.HostWords : "未提供簡介";
+
+                let str_html = `<tr class="">
+                    <td data-th="店家編號"><span>${id}</span></td>
+                    <td data-th="店家圖片">
+                        <span>
+                            <img src="${img}" width="200px" alt="">
+                        </span>
+                    </td>
+                    <td data-th="店家名稱"><span>${name}</span></td>
+                    <td data-th="店家地址"><span>${address}</span></td>
+                    <td data-th="店家電話"><span>${tel}</span></td>
+                    <td data-th="店家簡介">
+                        <span>
+                        ${hostword}
+                        </span>
+                    </td>
+                </tr>`;
+
+                $("#mybody").append(str_html);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

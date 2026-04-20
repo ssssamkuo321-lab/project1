@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh.TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>復古電玩觀光指南 - 文字強化版</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+    <style>
+        :root {
+            --pixel-border: #333;
+            --panel-bg: rgba(255, 255, 255, 0.95); /* 加強背板不透明度 */
+            --accent-color: #007bff;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            image-rendering: pixelated;
+        }
+
+        /* 統一硬邊邊框 */
+        .bg-cover {
+            background-position: center center;
+            background-size: cover;
+            border: 4px solid var(--pixel-border);
+        }
+
+        /* --- 捲軸遮罩與文字背板強化 --- */
+        .rollert { position: relative; overflow: hidden; }
+        
+        .rollert_box {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.2); /* 淡淡的底色 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s steps(4);
+            z-index: 5;
+            padding: 15px;
+        }
+
+        /* 文字背板容器 */
+        .text-panel {
+            background: var(--panel-bg);
+            border: 3px solid var(--pixel-border);
+            padding: 15px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+            color: #000 !important; /* 強制黑字 */
+            width: 90%;
+        }
+
+        .rollert:hover .rollert_box { opacity: 1; }
+
+        /* --- 中央主視窗特效 --- */
+        .main-monitor {
+            position: relative;
+            overflow: hidden;
+            border: 6px solid var(--pixel-border);
+        }
+
+        /* 掃描線動畫 */
+        .main-monitor::after {
+            content: " ";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            animation: scanline 8s linear infinite;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+
+        /* 震動效果 */
+        .box-glitch:hover { animation: glitch 0.2s infinite; }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            50% { transform: translate(-2px, 1px); }
+            100% { transform: translate(2px, -1px); }
+        }
+
+        /* 底部按鈕區 */
+        .btn01 {
+            text-align: center;
+            line-height: 250px;
+            font-weight: 900;
+        }
+        .btn01 a {
+            text-decoration: none;
+            color: #fff;
+            background: var(--pixel-border);
+            padding: 10px 20px;
+            border: 4px outset #999;
+            white-space: nowrap;
+        }
+        .btn01 a:hover { background: var(--accent-color); border-style: inset; }
+
+        /* 修正高度排版 */
+        .vh-100 { min-height: 100vh; }
+        .h-50 { height: calc(50% - 8px) !important; } /* 扣除 gap 的高度 */
+
+    </style>
+</head>
+
+<body class="p-3">
+    <div class="container-fluid">
+
+        <!-- 頂部導覽 -->
+        <div class="bg-white p-3 mb-3 mt-2 rounded-4 shadow-sm border border-dark">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div>
+                    <div class="h4 fw-bold mb-0">PIXEL TOUR GUIDE</div>
+                    <div class="small text-secondary">區域編號：CH-04 | 狀態：連線中</div>
+                </div>
+                <div class="d-flex gap-2 mt-2 mt-md-0">
+                    <a href="#" class="btn btn-outline-dark btn-sm rounded-0">熱門體驗</a>
+                    <a href="#" class="btn btn-outline-dark btn-sm rounded-0">方案價格</a>
+                    <a href="#" class="btn btn-dark btn-sm rounded-0">立即報名</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 景點介紹 (1/3 水平排列) -->
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="bg-cover box01 rollert" style="background-image: url(images/001.jpg); height: 220px;">
+                    <div class="rollert_box">
+                        <div class="text-panel text-center">
+                            <div class="h5 fw-bold mb-1">景點 001</div>
+                            <div class="small mb-2">座標：(12, 45)</div>
+                            <a href="#" class="btn btn-dark btn-sm rounded-0 py-0 px-2" style="font-size: 12px;">查看</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-cover box01 rollert" style="background-image: url(images/002.jpg); height: 220px;">
+                    <div class="rollert_box">
+                        <div class="text-panel text-center">
+                            <div class="h5 fw-bold mb-1">景點 002</div>
+                            <div class="small mb-2">座標：(88, 12)</div>
+                            <a href="#" class="btn btn-dark btn-sm rounded-0 py-0 px-2" style="font-size: 12px;">查看</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-cover box01 rollert" style="background-image: url(images/003.jpg); height: 220px;">
+                    <div class="rollert_box">
+                        <div class="text-panel text-center">
+                            <div class="h5 fw-bold mb-1">景點 003</div>
+                            <div class="small mb-2">座標：(04, 99)</div>
+                            <a href="#" class="btn btn-dark btn-sm rounded-0 py-0 px-2" style="font-size: 12px;">查看</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 中間大型展示區 (1/4 + 1/2 + 1/4 水平排列) -->
+        <div class="row vh-100 g-3 mt-1">
+            <!-- 左側欄 -->
+            <div class="col-md-3">
+                <div class="h-100 d-flex flex-column justify-content-between">
+                    <div class="h-50 bg-cover rollert" style="background-image: url(images/02.jpg);">
+                        <div class="rollert_box">
+                            <div class="text-panel text-center py-2">在地美食</div>
+                        </div>
+                    </div>
+                    <div class="h-50 bg-cover rollert" style="background-image: url(images/03.jpg);">
+                        <div class="rollert_box">
+                            <div class="text-panel text-center py-2">交通指南</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中央大圖 (特效主視窗) -->
+            <div class="col-md-6">
+                <div class="bg-cover h-100 main-monitor box-glitch d-flex align-items-center justify-content-center" style="background-image: url(images/01.jpg);">
+                    <div class="text-panel text-center" style="width: auto; opacity: 0.9;">
+                        <div class="h4 fw-bold mb-0">區域掃描中...</div>
+                        <div class="small">DATA ANALYZING</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右側欄 -->
+            <div class="col-md-3">
+                <div class="h-100 d-flex flex-column justify-content-between">
+                    <div class="h-50 bg-cover rollert" style="background-image: url(images/02.jpg);">
+                        <div class="rollert_box">
+                            <div class="text-panel text-center py-2">天氣預報</div>
+                        </div>
+                    </div>
+                    <div class="h-50 bg-cover rollert" style="background-image: url(images/03.jpg);">
+                        <div class="rollert_box">
+                            <div class="text-panel text-center py-2">冒險紀錄</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部功能列 (1/4 水平排列) -->
+        <div class="row vh-100 g-3 mt-1">
+            <div class="col-md-3">
+                <div class="bg-cover h-100 box02" style="background-image: url(images/04.jpg);">
+                    <div class="btn01"><a href="#">飯店預約</a></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="bg-cover h-100 box02" style="background-image: url(images/05.jpg);">
+                    <div class="btn01"><a href="#">裝備商店</a></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="bg-cover h-100 box02" style="background-image: url(images/06.jpg);">
+                    <div class="btn01"><a href="#">地圖下載</a></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="bg-cover h-100 box02" style="background-image: url(images/07.jpg);">
+                    <div class="btn01"><a href="#">聯絡 NPC</a></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

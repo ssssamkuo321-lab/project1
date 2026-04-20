@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh.TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>時間軸排版</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+    <style>
+        .pimg {
+            height: 260px;
+        }
+
+        .bg-cover {
+            background-position: center center;
+            background-size: cover;
+        }
+
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--mycolor05);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+        }
+
+        .timeline-section-pointer::before {
+            position: absolute;
+            content: "";
+            width: 18px;
+            height: 18px;
+            background-color: var(--mycolor08);
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            border: 3px solid var(--mycolor07);
+        }
+
+        .timeline-section-pointer:hover:before{
+            width: 24px;
+            height: 24px;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .timeline-section::before{
+                display: none;
+            }
+
+            .timeline-section-pointer::before{
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="timeline-section">
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="pimg bg-cover" style="background-image: url(images/006.jpg);"></div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div>
+                        <div class="h3">產品編號001</div>
+                        <p>完善四個一樣，採用。</p>
+                        <p>完善四個一樣，採用。</p>
+                        <p>完善四個一樣，採用。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="pimg bg-cover" style="background-image: url(images/007.jpg);"></div>
+                </div>
+                <div class="col-md-6 text-center flex-column-reverse">
+                    <div>
+                        <div class="h3">產品編號002</div>
+                        <p>完善四個一樣，採用。</p>
+                        <p>完善四個一樣，採用。</p>
+                        <p>完善四個一樣，採用。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="pimg bg-cover" style="background-image: url(images/008.jpg);"></div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div>
+                        <div class="h3">產品編號003</div>
+                        <p>完善四個一樣，採用。</p>
+                        <p>完善四個一樣，採用。</p>
+                        <p>完善四個一樣，採用。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="pimg bg-cover" style="background-image: url(images/009.jpg);"></div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div>
+                        <div class="h3">產品編號004</div>
+                        <p>完善四個一樣，採用。</p>
+                        <p>完善四個一樣，採用。</p>
+                        <p>完善四個一樣，採用。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="css/jquery-4.0.0.js"></script>
+</body>
+
+</html>

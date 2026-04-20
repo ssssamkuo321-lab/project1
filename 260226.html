@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh.TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11.表單</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+</head>
+
+<body>
+    <div class="container pb-5">
+        <div class="title-01 p-3 my-4 fw-400 text-danger">11.表單相關應用</div>
+
+        <div class="title-03 p-3 my-4 fw-400 text-secondary">1.表單樣式</div>
+        <div class="row">
+            <div class="col-12">
+                <form id="myForm">
+                    <div class="mb-3">
+                        <label for="" class="form-label">帳號</label>
+                        <input type="text" class="form-control" id="username01" placeholder="帳號字數1~6">
+                        <div class="valid-feedback">輸入符合規定</div>
+                        <div class="invalid-feedback">輸入不符合規定</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">密碼</label>
+                        <input type="password" class="form-control" id="password01" placeholder="密碼字數2~8">
+                        <div class="valid-feedback">輸入符合規定</div>
+                        <div class="invalid-feedback">輸入不符合規定</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email01" placeholder="信箱字數2~10">
+                        <div class="valid-feedback">輸入符合規定</div>
+                        <div class="invalid-feedback">輸入不符合規定</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">送出</button>
+                </form>
+            </div>
+        </div>
+
+        <hr class="my-5">
+        <div class="title-03 p-3 my-4 fw-400 text-secondary">2.表單樣式(不使用form)</div>
+        <div class="row">
+            <div class="col-12">
+                <form id="myForm">
+                    <div class="mb-3">
+                        <label for="" class="form-label">帳號</label>
+                        <input type="text" class="form-control" id="username02" placeholder="帳號字數1~6">
+                        <div class="valid-feedback">輸入符合規定</div>
+                        <div class="invalid-feedback">輸入不符合規定</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">密碼</label>
+                        <input type="password" class="form-control" id="password02" placeholder="密碼字數2~8">
+                        <div class="valid-feedback">輸入符合規定</div>
+                        <div class="invalid-feedback">輸入不符合規定</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email02" placeholder="信箱字數2~10">
+                        <div class="valid-feedback">輸入符合規定</div>
+                        <div class="invalid-feedback">輸入不符合規定</div>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btn02">送出</button>
+                </form>
+            </div>
+        </div>
+
+        <hr class="mt-5">
+        <div class="title-03 text-secondary">3. select</div>
+        <div class="row">
+            <div class="col-12">
+                <select name="" id="mycity" class="form-select form-select-lg">
+                    <option value="" class="text-center" disabled selected>*****請選擇*****</option>
+                    <option value="123">123xxxx</option>
+                    <option value="456">465xxxx</option>
+                    <option value="789">789xxxx</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="title-03 text-secondary">點餐選單練習(select) ai生成</div>
+        <div class="row">
+            <div class="col-12">
+                <select name="" id="mycity01" class="form-select form-select-lg">
+                    <option value="" class="text-center" disabled selected>*****請選擇*****</option>
+                    <option value="紅燒牛肉麵01"></option>
+                    <option value="紅燒牛肉麵02"></option>
+                    <option value="紅燒牛肉麵03"></option>
+                </select>
+            </div>
+        </div>
+
+
+        <hr class="mt-5">
+        <div class="title-03 py-3 text-secondary">4. range</div>
+        <div class="row">
+            <div class="col-12">
+                <label for="form-label">
+                    數量:<span class="text-success h2 fw-900" id="num_text">50</span>個
+                </label>
+                <input type="range" class="form-range" id="num" min="0" max="100" step="1">
+            </div>
+        </div>
+
+        <!-- 資料串接後端推薦熱門美食 -->
+        <hr class="mt-5">
+        <div class="title-03 py-3 text-secondary">5. datalist(資料串接後端推薦熱門美食)</div>
+        <div class="row">
+            <div class="mb-3">
+                <label for="" class="form-label">美食紀錄</label>
+                <input type="text" class="form-control" list="foodlist">
+                <datalist id="foodlist">
+                    <option value="牛肉麵"></option>
+                    <option value="炒飯"></option>
+                    <option value="漢堡"></option>
+                    <option value="可樂"></option>
+                </datalist>
+            </div>
+        </div>
+
+        <hr class="mt-5">
+        <div class="title-03 py-3 text-secondary">6.checkbox(複選)</div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-check">
+                    <input type="checkbox" name="sport" id="" value='跑步' class="form-check-input">
+                    <label for="" class="form-check-label">跑步</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="sport" id="" value='游泳' class="form-check-input">
+                    <label for="" class="form-check-label">游泳</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="sport" id="" value='爬山' class="form-check-input">
+                    <label for="" class="form-check-label">爬山</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="sport" id="" value='重訓' class="form-check-input">
+                    <label for="" class="form-check-label">重訓</label>
+                </div>
+                <button type="button" class="btn btn-success my-3" id="btn06">確認</button>
+            </div>
+
+        </div>
+
+        <hr class="mt-5">
+        <div class="title-03 py-3 text-secondary">7.radio(單選)</div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-check">
+                    <input type="radio" name="edu" id="" value='研究所' class="form-check-input">
+                    <label for="" class="form-check-label">研究所</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="edu" id="" value='大學' class="form-check-input">
+                    <label for="" class="form-check-label">大學</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="edu" id="" value='高中職' class="form-check-input">
+                    <label for="" class="form-check-label">高中職</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="edu" id="" value='其他' class="form-check-input">
+                    <label for="" class="form-check-label">其他</label>
+                </div>
+
+                <button type="button" class="btn btn-success my-3" id="btn07">確認</button>
+            </div>
+
+        </div>
+
+        <hr class="mt-5">
+        <div class="title-03 py-3 text-secondary">8.floating</div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-3 form-floating">
+                    <input type="text" class="form-control" name="" id="" placeholder="">
+                    <label for="" class="form-label">帳號</label>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="css/jquery-4.0.0.js"></script>
+    <script>
+
+        //公有變數
+        let flag_username01 = false;
+        let flag_password01 = false;
+        let flag_email01 = false;
+
+        let flag_username02 = false;
+        let flag_password02 = false;
+        let flag_email02 = false;
+        //主程式
+        $(function () {
+            //1.表單樣式
+            $("#myForm").submit(function (e) {
+                if (flag_username01 && flag_password01 && flag_email01) {
+                    e.preventDefault();
+                    console.log("form觸發!!!!!!!!!!");
+                    console.log($("#username01").val());
+                    console.log($("#password01").val());
+                    console.log($("#email01").val());
+                } else {
+                    e.preventDefault();
+                    alert("欄位有錯誤, 請修正");
+                }
+
+
+            });
+
+            $("#username01").blur(function () {
+                //console.log($(this).val().length);
+                if ($(this).val().length > 0 && $(this).val().length < 7) {
+                    //符合規定
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_username01 = true;
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_username01 = false;
+                }
+
+            });
+
+            $("#password01").blur(function () {
+                if ($(this).val().length > 1 && $(this).val().length < 9) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_password01 = true;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_password01 = false;
+                }
+
+            });
+
+            $("#email01").blur(function () {
+                if ($(this).val().length > 1 && $(this).val().length < 11) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_email01 = true;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_email01 = false;
+                }
+
+            });
+
+
+
+            // //鍵盤放開觸發
+            // $("#username01").keyup(function () {
+            //     console.log($("#username01").val());
+            // });
+            // //資料變更與焦點改變成立觸發
+            // $("#password01").change(function () {
+            //     console.log($("#password01").val());
+            // });
+            // //焦點改變觸發
+            // $("#email01").blur(function () {
+            //     console.log($("#email01").val());
+            // });
+
+            //2.表單樣式(不使用form)
+            $("#btn02").click(function () {
+                if (flag_username02 && flag_password02 && flag_email02) {
+                    console.log("btn02監聽觸發!!!!!!!!!!");
+                    console.log($("#username02").val());
+                    console.log($("#password02").val());
+                    console.log($("#email02").val());
+                } else {
+                    alert("欄位有錯誤, 請修正");
+                }
+            });
+
+            $("#username02").blur(function () {
+                if ($(this).val().length > 0 && $(this).val().length < 7) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_username02 = true;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_username02 = false;
+                }
+            });
+
+            $("#password02").blur(function () {
+                if ($(this).val().length > 1 && $(this).val().length < 9) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_password02 = true;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_password02 = false;
+                }
+            });
+
+            $("#email02").blur(function () {
+                if ($(this).val().length > 1 && $(this).val().length < 11) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_email02 = true;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_email02 = false;
+                }
+            });
+
+
+
+            //3. select
+            $("#mycity").change(function () {
+                console.log($(this).val());
+            });
+
+
+            const fooddata = [
+                {
+                    "name": "紅燒牛肉麵",
+                    "price": 180,
+                    "description": "選用澳洲牛腱與特製中藥材燉煮，湯頭濃郁香醇。"
+                },
+                {
+                    "name": "老北京炸醬麵",
+                    "price": 85,
+                    "description": "經典手打麵條搭配濃郁豆瓣肉醬與清脆小黃瓜絲。"
+                },
+                {
+                    "name": "排骨便當",
+                    "price": 110,
+                    "description": "厚切帶骨排骨經醃製後油炸，酥脆多汁，附三樣精選配菜。"
+                },
+                {
+                    "name": "三鮮水餃",
+                    "price": 90,
+                    "description": "內含鮮蝦、豬肉與韭黃，每一口都能吃到大海的鮮甜。"
+                },
+                {
+                    "name": "清燉羊肉湯",
+                    "price": 150,
+                    "description": "嚴選溫體羊肉，湯頭加入薑絲與米酒，去腥滋補。"
+                },
+                {
+                    "name": "麻辣乾拌麵",
+                    "price": 75,
+                    "description": "手工拉麵拌入特製大紅袍花椒油，香麻過癮。"
+                },
+                {
+                    "name": "脆皮雞腿飯",
+                    "price": 120,
+                    "description": "外皮金黃酥脆，肉質滑嫩，深受上班族喜愛。"
+                },
+                {
+                    "name": "什錦炒烏龍",
+                    "price": 130,
+                    "description": "豐富的海鮮與蔬菜搭配日式烏龍麵，鮮味十足。"
+                },
+                {
+                    "name": "滷肉飯 (大)",
+                    "price": 55,
+                    "description": "手工切丁豬肉燥，慢火熬煮出膠質，入口即化。"
+                },
+                {
+                    "name": "蚵仔煎",
+                    "price": 80,
+                    "description": "選用東石鮮蚵，搭配特調粉漿與甜辣醬汁。"
+                },
+                {
+                    "name": "台式擔仔麵",
+                    "price": 60,
+                    "description": "肉燥香氣誘人，搭配鮮蝦與蒜泥，傳統台式風味。"
+                },
+                {
+                    "name": "揚州炒飯",
+                    "price": 100,
+                    "description": "粒粒分明的米飯搭配叉燒肉與鮮蝦，火候十足。"
+                },
+                {
+                    "name": "越式生春捲",
+                    "price": 95,
+                    "description": "清爽蔬菜與鮮蝦包裹在薄皮內，搭配酸辣魚露醬。"
+                },
+                {
+                    "name": "泰式打拋豬飯",
+                    "price": 140,
+                    "description": "香辣豬肉末與九層塔拌炒，附上金黃半熟蛋。"
+                },
+                {
+                    "name": "日式豬排丼",
+                    "price": 160,
+                    "description": "酥炸豬排淋上嫩滑蛋液與洋蔥甜醬汁。"
+                },
+                {
+                    "name": "韓式石鍋拌飯",
+                    "price": 180,
+                    "description": "五彩蔬菜與辣醬在石鍋中滋滋作響，形成美味焦香鍋巴。"
+                },
+                {
+                    "name": "香煎虱目魚肚",
+                    "price": 200,
+                    "description": "產地直送新鮮魚肚，煎至表面金黃，富含優質油脂。"
+                },
+                {
+                    "name": "皮蛋瘦肉粥",
+                    "price": 70,
+                    "description": "熬至綿密的廣東粥底，加入皮蛋與嫩滑豬肉條。"
+                },
+                {
+                    "name": "鮮魚味噌湯",
+                    "price": 45,
+                    "description": "使用新鮮魚片與日式味噌，清甜暖胃。"
+                },
+                {
+                    "name": "培根奶油義大利麵",
+                    "price": 220,
+                    "description": "經典濃郁白醬，拌入酥脆培根碎與帕瑪森起司。"
+                }
+            ];
+
+            $("#mycity01").empty();
+            $("#mycity01").append(`<option value="" class="text-center" disabled selected>*****請選擇*****</option>`);
+
+            fooddata.forEach(function (item) {
+                // console.log(item.name);
+                let strHTML = `<option value="${item.name}">${item.name}</option>`;
+                $("#mycity01").append(strHTML);
+            });
+            $("#mycity01").change(function () {
+                console.log($(this).val());
+            })
+
+
+            //4.range監聽
+            $("#num").on("input", function () {
+                console.log($(this).val());
+                $("#num_text").text($(this).val());
+            })
+
+
+            //6.checkbox(複選)
+            //初始值設定
+            $("input[name='sport'][value='跑步']").prop("checked", true);
+            $("input[name='sport'][value='游泳']").prop("checked", true);
+            $("input[name='sport'][value='爬山']").prop("checked", true);
+            $("input[name='sport'][value='重訓']").prop("checked", true);
+
+            $("#btn06").click(function () {
+                let result = [];
+
+
+
+                $("input[name='sport']:checked").each(function () {
+                    console.log($(this).val());
+                    result.push($(this).val());
+                });
+
+                if (result.length == 0) {
+                    alert("至少選擇一個運動");
+                } else {
+                    console.log(result);
+                }
+
+            });
+
+            //7.radio(單選)
+
+            $("input[name='edu'][value='其他']").prop("checked", true);
+
+            $("#btn07").click(function () {
+                let result = [];
+
+                $("input[name='edu']:checked").each(function () {
+                    console.log($(this).val());
+                    result.push($(this).val());
+                });
+
+            });
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

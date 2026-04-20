@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習2 CSS</title>
+    <link rel="stylesheet" href="css/css_1.css">
+
+        <style>
+            body{
+                background-color: var(--mycolor08);
+
+
+            }
+
+            .wrapper{
+                /* margin-top: 0;
+                margin-bottom: 0;
+                margin-left: auto;
+                margin-right: auto;
+                width: 1024px; */
+                /* 圖片置中 效果同下 */
+                margin: 0 auto;
+                width: 1024px;
+
+            }
+
+            .wrapper .banner img{
+                width: 100%;
+
+            }
+
+            nav{
+                background-color: var(--mycolor10);
+                text-align: center;
+
+            }
+            /* 這兩層要一起寫才有用 */
+            nav ul{
+                display: inline-block;
+
+            }
+
+            nav ul li{
+                float: left;
+                list-style-type: none;
+
+            }
+            /* 這兩層要一起寫才有用 垂直邊水平*/
+            nav ul li a{
+                display: block;
+                background-color: var(--mycolor12);
+                padding: 5px 10px; 
+                text-decoration: none;
+                color: var(--mycolor04);
+                font-size: 30px;
+                font-weight: 700;
+                margin: 0px 15px 0px 15px;
+                border-radius: 10px;
+                box-shadow: 2px 2px 2px 2px var(--mycolor07);
+            }
+
+            nav ul li a:hover{
+                background-color: var(--mycolor09);
+                color: var(--mycolor07);
+                box-shadow: 0px 0px 0px 0px var(--mycolor07);
+            }
+
+            .content{   
+                background-color: var(--mycolor05);
+                padding: 30px 30px 50px 50px;
+
+            }
+
+            .content h1{
+                text-align: center;
+                font-size: 30px;
+                font-weight: 1000;
+
+            }
+
+            .content p{
+                text-align: left;
+
+            }
+
+            .content a{
+                
+                display: block;
+                width: 100px;
+                height: 50px;
+                background-color: var(--mycolor12);
+                text-align: center;
+                text-decoration: none;
+                color: var(--mycolor04);
+                font-size: 20px;
+                font-weight: 700;
+                margin: 0 auto;
+                border-radius: 10px;
+                line-height: 50px;
+                box-shadow: 2px 2px 2px 2px var(--mycolor07);
+            }
+            
+            .content a:hover{
+                background-color: var(--mycolor09);
+                color: var(--mycolor07);
+                box-shadow: 0px 0px 0px 0px var(--mycolor07);
+            }
+
+            .footer{
+
+                background-color: var(--mycolor09);
+                text-align: center;
+                color: var(--mycolor13);
+                padding: 1px 0px; 
+            }
+
+        </style>
+
+</head>
+<body>
+    <div class="wrapper">
+        
+        <div class="banner">
+            <img src="https://picsum.photos/id/123/1024/220" alt="">
+            <!-- 選單 -->
+            <nav>
+                <ul>
+                    <li><a href="">首頁</a></li>
+                    <li><a href="">最新資訊</a></li>
+                    <li><a href="">合作店家</a></li>
+                    <li><a href="">關於我們</a></li>
+                    <li><a href="">聯絡我們</a></li>
+                </ul>
+                <!-- 快速指定 ul>li*5>a -->
+            </nav>
+
+
+
+        </div>
+        <div class="content">
+            <h1>歡迎光臨</h1>
+            <p>不過凱文感到那些支付然後，拍攝連載收購有的回頭本帖適用於一體性別，一邊上來環節咱們他人網際網路主角才會全國點擊數興奮道德智慧，負責姑娘，哪裡出台福建好好避免處理，現金出口消費者日記瘋狂提供，選手引導私人不限鈴聲簡直實施留言漂亮寶貝前進加大本帖教授動作，有。</p>
+            <p>引導文學解決方案，騎士對面有些組合，十年所有人證件先進性反對人們便是，限制溫州親自證據森林歡迎，步驟看來禮物提示是這樣我真免費版不得不出去角度不了所以，適應一方面然而一顆記者飛機有限，互動只需就有學院變化違反魔獸一名一句，文學播放接觸根本便是，你想網際快。</p>
+            <p>群眾目標一年期間優勢評分並不總統你好高中後果，醫藥兩個上來地位一件預期心中能量東西甚至上有依法接到最初刪除，阿摩斯，方面練習，激情學會或許連載，離開二手大門圖書但在提交的是浪費貢獻非常太多市場機械重複，無門明天一份兒童基地這次顏色要有有關只是特性有很多我。</p>
+            <a href="">了解更多</a>
+
+        </div>
+
+
+        <div class="footer">
+            <h1>123版權所有~~~~~~~~~~~~</h1>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

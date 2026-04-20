@@ -1,0 +1,2293 @@
+<!DOCTYPE html>
+<html lang="zh.TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>派對公司官方網站</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .bg-cover {
+            background-position: center center;
+            background-size: cover;
+        }
+    </style>
+    <!-- **********************************************************ai **************************************************-->
+    <style>
+        /* 這裡定義專屬這段的像素風格 */
+        #s01 {
+            background-color: #2c1e14 !important;
+            /* 深咖啡色背景，像老舊的機器 */
+            border-bottom: 4px solid #8b5a2b;
+            /* 像素厚邊框 */
+            image-rendering: pixelated;
+        }
+
+        #s01 .container {
+            position: relative;
+        }
+
+        /* 懸浮效果：模擬按鈕按下的感覺 */
+        #s01 a {
+            display: inline-block;
+            margin-left: 15px;
+            padding: 5px;
+            transition: transform 0.1s;
+            filter: drop-shadow(3px 3px 0px #000);
+            /* 像素立體陰影 */
+        }
+
+        #s01 a:hover {
+            transform: translateY(2px);
+            /* 按下感 */
+            filter: drop-shadow(1px 1px 0px #000);
+        }
+
+        /* 圖示顏色調整：復古銅金屬色 */
+        #s01 .fa-brands {
+            color: #d4a373 !important;
+        }
+
+        /* 針對不同社群微微發光 (Steampunk 氖燈感) */
+        #s01 .fa-facebook:hover {
+            color: #4a90e2 !important;
+        }
+
+        #s01 .fa-line:hover {
+            color: #7cfc00 !important;
+        }
+
+        #s01 .fa-twitter:hover {
+            color: #00acee !important;
+        }
+
+        /* 文案：在前方加入一個偽元素提示冒險者 */
+        #s01 .text-end::before {
+            content: "聯絡通訊官 > ";
+            font-family: 'Courier New', Courier, monospace;
+            /* 模擬像素字體 */
+            font-weight: bold;
+            color: #8b5a2b;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        /* 導覽列背景：深鐵灰色與像素下邊緣 */
+        #s02 {
+            background-color: #1a1a1a !important;
+            border-bottom: 6px solid #4a4a4a;
+        }
+
+        #s02 .navbar {
+            background-color: transparent !important;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* 品牌圖示：維持原樣但加上像素光暈 */
+        .navbar-brand i {
+            filter: drop-shadow(2px 2px 0px #000);
+        }
+
+        /* 選單文字：復古像素感 */
+        .nav-link {
+            color: #d4a373 !important;
+            /* 銅色 */
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid transparent;
+            margin: 0 5px;
+            image-rendering: pixelated;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff !important;
+            background-color: #8b5a2b;
+            /* 棕色選取狀態 */
+            border: 2px solid #d4a373;
+            box-shadow: 4px 4px 0px #000;
+            /* 像素陰影 */
+        }
+
+        /* 下拉選單：模擬遊戲選單視窗 */
+        .dropdown-menu {
+            background-color: #2c1e14;
+            border: 4px solid #8b5a2b;
+            border-radius: 0;
+        }
+
+        .dropdown-item {
+            color: #d4a373;
+        }
+
+        .dropdown-item:hover {
+            background-color: #d4a373;
+            color: #2c1e14;
+        }
+
+        /* 按鈕改造：變更為 8-bit 指令按鈕 */
+        .btn-outline-warning {
+            border: 3px solid #f39c12 !important;
+            border-radius: 0;
+            background: #000;
+            color: #f39c12 !important;
+            box-shadow: 4px 4px 0px #f39c12;
+        }
+
+        .btn-success {
+            border: 3px solid #27ae60 !important;
+            border-radius: 0;
+            background: #000;
+            color: #27ae60 !important;
+            box-shadow: 4px 4px 0px #27ae60;
+        }
+
+        .btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px;
+        }
+
+        /* 核心：將背景改為深黑，讓故事箱浮現 */
+        #s03 {
+            background-color: #0a0a0a !important;
+            padding: 60px 0;
+            border-bottom: 8px solid #2c1e14;
+        }
+
+        /* 故事箱外框 (劇院感) */
+        .story-box-frame {
+            border: 10px solid #2c1e14;
+            /* 內框：深木色 */
+            outline: 6px solid #8b5a2b;
+            /* 外框：亮銅色 */
+            box-shadow: 20px 20px 0px #000;
+            /* 像素投影 */
+            position: relative;
+            overflow: hidden;
+            image-rendering: pixelated;
+        }
+
+        /* 圖片亮度微調，讓它更像是在箱子裡看電影 */
+        .s03-img {
+            height: 500px;
+            /* 固定高度讓箱子比例一致 */
+            object-fit: cover;
+            filter: brightness(0.6) sepia(0.3);
+            transition: 0.5s;
+        }
+
+        /* 對話框改為「卷軸」懸浮感 */
+        .carousel-caption-block {
+            background: rgba(26, 26, 26, 0.9) !important;
+            border: 4px solid #d4a373 !important;
+            border-radius: 0 !important;
+            left: 5% !important;
+            right: 5% !important;
+            bottom: 5% !important;
+            box-shadow: 8px 8px 0px #000 !important;
+            padding: 25px !important;
+        }
+
+        /* 控制按鈕縮小，模擬遙控器/按鍵 */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 8%;
+            background: rgba(0, 0, 0, 0.3);
+            image-rendering: pixelated;
+        }
+
+        #s04 {
+            background-color: #2c1e14;
+            /* 深木色背景 */
+            color: #d4a373;
+            font-family: 'Courier New', Courier, monospace;
+            border-bottom: 8px solid #1a1a1a;
+        }
+
+        /* 左側圖片像素化與邊框 */
+        #s04 .bg-cover {
+            image-rendering: pixelated;
+            border: 10px solid #4a331e;
+            border-left: none;
+            filter: grayscale(0.3) contrast(1.1);
+        }
+
+        /* 標題與內文 */
+        #s04 .h2 {
+            font-weight: bold;
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        #s04 .text-success {
+            color: #7cfc00 !important;
+            /* 螢光綠像素字 */
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        /* 數據方塊：模擬 RPG 狀態視窗 */
+        #s04 .bg-success.bg-opacity-50 {
+            background-color: #1a1a1a !important;
+            /* 黑鐵背景 */
+            border: 3px solid #8b5a2b;
+            /* 銅質邊框 */
+            border-radius: 0 !important;
+            /* 絕對直角 */
+            box-shadow: 6px 6px 0px #000;
+            /* 硬陰影 */
+            transition: transform 0.2s;
+            opacity: 1 !important;
+        }
+
+        #s04 .bg-success:hover {
+            transform: scale(1.05);
+            border-color: #f39c12;
+        }
+
+        /* 數字顏色：經驗值金色 */
+        #s04 .text-primary {
+            color: #f39c12 !important;
+            text-shadow: 2px 2px 0px #4a331e;
+        }
+
+        /* 分隔線 */
+        #s04 p {
+            border-left: 4px solid #8b5a2b;
+            padding-left: 15px;
+            color: #a1acbe;
+        }
+
+        /* 基礎背景設置 */
+        #s05 {
+            background-color: #1a1a1a !important;
+            position: relative;
+            padding: 80px 0;
+            color: #d4a373;
+            font-family: 'Courier New', monospace;
+            overflow: visible;
+            /* 確保節點不會被切掉 */
+        }
+
+        /* 背景遮罩，增加閱讀性 */
+        #s05::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .s05-container {
+            position: relative;
+            z-index: 2;
+            /* 確保內容在遮罩上方 */
+        }
+
+        /* --- 中央像素軸線 --- */
+        .s05-timeline-section {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .s05-timeline-section::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 8px;
+            /* 寬度增加 */
+            background-color: #4a331e;
+            /* 鏽鐵色 */
+            border-left: 3px solid #8b5a2b;
+            /* 側邊光澤 */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        /* --- 節點 (Quest Point) --- */
+        .timeline-section-pointer {
+            position: relative;
+            margin-bottom: 100px;
+            z-index: 5;
+        }
+
+        .timeline-section-pointer::before {
+            position: absolute;
+            content: "";
+            width: 24px;
+            height: 24px;
+            background-color: #7cfc00;
+            /* 螢光綠燈 */
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%) rotate(45deg);
+            /* 菱形像素塊 */
+            border: 4px solid #1a1a1a;
+            box-shadow: 4px 4px 0px #000;
+            z-index: 10;
+            animation: pixel-blink 1.2s steps(2) infinite;
+        }
+
+        @keyframes pixel-blink {
+
+            0%,
+            100% {
+                background-color: #7cfc00;
+                box-shadow: 0 0 10px #7cfc00;
+            }
+
+            50% {
+                background-color: #4a331e;
+                box-shadow: none;
+            }
+        }
+
+        /* 內容方塊設計 */
+        .s05-box {
+            background-color: #2c1e14 !important;
+            border: 4px solid #d4a373 !important;
+            border-radius: 0 !important;
+            box-shadow: 10px 10px 0px #000 !important;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .s05-box:hover {
+            transform: translateY(-5px);
+            border-color: #fff !important;
+        }
+
+        .s05-img-box {
+            image-rendering: pixelated;
+            border: 4px solid #8b5a2b;
+            box-shadow: 6px 6px 0px #000;
+        }
+
+        /* 標題與文字 */
+        .text-warning-pixel {
+            color: #f39c12 !important;
+            text-shadow: 2px 2px 0px #000;
+            font-weight: 900;
+        }
+
+        /* 手機版適應 */
+        @media screen and (max-width: 768px) {
+            .s05-timeline-section::before {
+                left: 20px;
+                transform: none;
+            }
+
+            .timeline-section-pointer::before {
+                left: 20px;
+                transform: rotate(45deg);
+            }
+
+            .s05-box {
+                margin-left: 30px;
+            }
+        }
+
+        /* 這裡定義全新的 Class 名稱，避免與你之前的預設 CSS 衝突 */
+        #s06 {
+            background-color: #1a1a1a !important;
+            border-top: 10px solid #2c1e14;
+            padding: 80px 0;
+        }
+
+        /* 像素卡片容器 */
+        .guild-medal-card {
+            padding: 20px;
+            transition: transform 0.2s steps(2);
+            position: relative;
+        }
+
+        /* 像素邊框設計：模擬 8-bit 選單框 */
+        .medal-frame {
+            background-color: #2c1e14;
+            border: 4px solid #d4a373;
+            /* 古銅色 */
+            box-shadow: 10px 10px 0px #000;
+            padding: 40px 20px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 背景點綴：模擬舊式印刷的網點感 */
+        .medal-frame::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(#3d2b1f 1px, transparent 1px);
+            background-size: 4px 4px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* 圖示：賦予發光感與像素投影 */
+        .guild-medal-card i {
+            filter: drop-shadow(4px 4px 0px #000);
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .guild-medal-card:hover i {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0px 0px 10px #f39c12);
+        }
+
+        /* 標題與內文 */
+        .medal-title {
+            font-family: 'Courier New', monospace;
+            color: #f39c12 !important;
+            text-shadow: 2px 2px 0px #000;
+            font-weight: 900;
+            letter-spacing: 2px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .medal-desc {
+            font-family: 'Courier New', monospace;
+            color: #a1acbe !important;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* 滑鼠懸停效果 */
+        .guild-medal-card:hover .medal-frame {
+            border-color: #fff;
+            transform: translateY(-10px);
+            background-color: #3d2b1f;
+        }
+
+        #s08 {
+            background-color: #1a1a1a !important;
+            border-top: 8px solid #4a331e;
+            padding: 80px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        #s08 .display-2 {
+            text-shadow: 4px 4px 0px #000;
+            letter-spacing: 5px;
+            margin-bottom: 50px !important;
+        }
+
+        /* 角色卡片容器 */
+        #s08 .d-flex {
+            background-color: #2c1e14;
+            border: 4px solid #8b5a2b;
+            /* 銅色邊框 */
+            padding: 20px;
+            box-shadow: 8px 8px 0px #000;
+            transition: all 0.2s steps(2);
+            position: relative;
+        }
+
+        #s08 .d-flex:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px #f39c12;
+            border-color: #f39c12;
+        }
+
+        /* 頭像像素化處理 */
+        .s08-userimg {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            image-rendering: pixelated;
+            /* 像素化效果 */
+            border: 4px solid #1a1a1a;
+            box-shadow: 4px 4px 0px #000;
+            background-color: #000;
+        }
+
+        /* 文字內容 */
+        #s08 .h1 {
+            font-size: 1.25rem !important;
+            color: #f39c12;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        #s08 .h5 {
+            font-size: 0.85rem !important;
+            color: #a1acbe;
+            margin-bottom: 5px;
+            border-left: 3px solid #7cfc00;
+            /* 技能發光感 */
+            padding-left: 8px;
+        }
+
+        /* 裝飾：血量條 (裝飾用，純 CSS) */
+        .hp-bar {
+            height: 4px;
+            width: 100%;
+            background-color: #444;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .hp-fill {
+            height: 100%;
+            width: 85%;
+            background-color: #7cfc00;
+        }
+
+        /* --- 核心：蒸氣電腦特效 --- */
+        .pixel-scroll-box {
+            background: linear-gradient(135deg, #d4a373 0%, #c49363 100%) !important;
+            border: 6px solid #8b5a2b !important;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 15px 15px 0px #000;
+            image-rendering: pixelated;
+        }
+
+        /* 模擬老舊螢幕的掃描線動畫 */
+        .pixel-scroll-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg,
+                    rgba(0, 0, 0, 0.05) 0px,
+                    rgba(0, 0, 0, 0.05) 1px,
+                    transparent 1px,
+                    transparent 2px);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        /* 文字顏色深色強化 */
+        .pixel-scroll-box p,
+        .pixel-scroll-box dd,
+        .pixel-scroll-box li,
+        .pixel-scroll-box dt,
+        .pixel-scroll-box .h2 {
+            color: #1a0f08 !important;
+            /* 接近純黑的深焦糖色 */
+            line-height: 1.8;
+            font-weight: 600;
+        }
+
+        /* 標題與裝飾 */
+        .pixel-headline {
+            color: #b22222 !important;
+            text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+            font-weight: 900;
+            border-bottom: 4px solid #8b5a2b;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        /* 特效：像素閃爍按鈕 */
+        .btn-pixel-action {
+            background-color: #2c1e14;
+            color: #f39c12 !important;
+            border: 4px solid #f39c12;
+            border-radius: 0;
+            padding: 10px 25px;
+            font-weight: bold;
+            transition: 0.1s steps(2);
+            box-shadow: 4px 4px 0px #000;
+        }
+
+        .btn-pixel-action:hover {
+            background-color: #f39c12;
+            color: #2c1e14 !important;
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px;
+        }
+
+        /* --- s07 & s09 佈局優化 --- */
+        .pixel-bg-side {
+            background-size: cover;
+            background-position: center;
+            image-rendering: pixelated;
+            filter: sepia(0.6) contrast(1.3) brightness(0.7);
+            transition: 0.5s;
+        }
+
+        #s07,
+        #s09 {
+            background-color: #000;
+            padding: 100px 0;
+        }
+
+        #s07 .pixel-bg-side {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 45%;
+            border-right: 12px double #4a331e;
+        }
+
+        #s09 .pixel-bg-side {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 45%;
+            border-left: 12px double #4a331e;
+        }
+
+        /* 成就圖示 */
+        .achievement-icon {
+            background: #8b5a2b;
+            color: #d4a373;
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            box-shadow: 3px 3px 0px #000;
+        }
+
+        @media screen and (max-width: 992px) {
+            .pixel-bg-side {
+                width: 100%;
+                opacity: 0.3;
+            }
+
+            .pixel-scroll-box {
+                margin: 20px;
+            }
+        }
+
+        #s10 {
+            background-color: #1a1a1a !important;
+            border-top: 8px solid #4a331e;
+            padding: 80px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* 地圖外框：模擬老式顯示器 */
+        .map-monitor-frame {
+            border: 10px solid #2c1e14;
+            box-shadow: 10px 10px 0px #000, inset 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        /* 模擬監視器的掃描線疊加 (Overlay) */
+        .map-monitor-frame::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg,
+                    rgba(0, 0, 0, 0.1) 0px,
+                    rgba(0, 0, 0, 0.1) 1px,
+                    transparent 1px,
+                    transparent 2px);
+            pointer-events: none;
+        }
+
+        /* 表單區塊改造 */
+        .quest-form-box {
+            background-color: #2c1e14;
+            border: 4px solid #d4a373;
+            padding: 30px;
+            box-shadow: 10px 10px 0px #000;
+        }
+
+        .quest-form-box .form-label {
+            color: #f39c12;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px #000;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* 輸入框像素化 */
+        .quest-form-box .form-control {
+            background-color: #1a1a1a;
+            border: 3px solid #8b5a2b;
+            border-radius: 0;
+            color: #7cfc00;
+            /* 經典終端機綠字 */
+            box-shadow: inset 3px 3px 0px #000;
+        }
+
+        .quest-form-box .form-control:focus {
+            background-color: #000;
+            border-color: #7cfc00;
+            box-shadow: 0 0 10px #7cfc00;
+            color: #fff;
+        }
+
+        /* 選項與按鈕 */
+        .quest-form-box .form-check-label {
+            color: #a1acbe;
+        }
+
+        .btn-quest-cancel {
+            background-color: #4a4a4a;
+            border: 3px solid #000;
+            border-radius: 0;
+            color: #fff;
+            box-shadow: 4px 4px 0px #000;
+        }
+
+        .btn-quest-confirm {
+            background-color: #7cfc00;
+            border: 3px solid #000;
+            border-radius: 0;
+            color: #000;
+            font-weight: 900;
+            box-shadow: 4px 4px 0px #000;
+        }
+
+        .btn-quest-confirm:hover {
+            background-color: #fff;
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px;
+        }
+
+        #s11 {
+            background-color: #2c1e14;
+            /* 整體底色調亮為木棕色 */
+            border-top: 8px solid #d4a373;
+            /* 頂部亮金色像素邊框 */
+            overflow: hidden;
+        }
+
+        /* 背景圖片處理：大幅調高亮度，移除過重的暗色濾鏡 */
+        #s11 .bg-cover {
+            image-rendering: pixelated;
+            filter: brightness(1) contrast(1.1) sepia(0.2);
+            /* 提高亮度，保持清晰 */
+            min-height: 650px;
+            position: relative;
+            border: 2px solid #8b5a2b;
+        }
+
+        /* 公告板本體：改為明亮的羊皮紙白/黃金色調 */
+        .bounty-poster {
+            background-color: #fdf5e6 !important;
+            /* 奶油白色羊皮紙，非常亮眼 */
+            border: 5px solid #d4a373 !important;
+            /* 亮金色厚邊框 */
+            border-radius: 0 !important;
+            box-shadow: 12px 12px 0px #1a1a1a !important;
+            /* 強烈的黑色像素投影 */
+            position: relative;
+            z-index: 10;
+            transition: transform 0.2s steps(2);
+        }
+
+        .bounty-poster:hover {
+            transform: translateY(-5px);
+            box-shadow: 15px 15px 0px #8b5a2b !important;
+        }
+
+        /* 標題與文字顏色強化：使用高對比深色 */
+        #s11 .h2 {
+            color: #b22222 !important;
+            /* 像素亮紅標題 */
+            font-weight: 900;
+            text-shadow: 1px 1px 0px #fff;
+            border-bottom: 3px double #d4a373;
+            padding-bottom: 10px;
+        }
+
+        #s11 p {
+            color: #2c1e14 !important;
+            /* 深咖啡色內文，確保易讀性 */
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        /* 薪資報酬：使用鮮豔的藍色或綠色 */
+        .gold-reward {
+            color: #008080 !important;
+            /* 亮青色，象徵高級任務 */
+            background: #e9ecef;
+            display: inline-block;
+            padding: 5px 15px;
+            border: 2px dashed #008080;
+            font-weight: bold;
+        }
+
+        /* 按鈕：鮮豔亮色 */
+        .btn-bounty {
+            background-color: #f39c12;
+            /* 鮮豔橘金 */
+            border: 4px solid #2c1e14;
+            border-radius: 0;
+            color: #fff !important;
+            font-size: 1.2rem;
+            font-weight: 900;
+            box-shadow: 5px 5px 0px #1a1a1a;
+            transition: 0.1s;
+        }
+
+        .btn-bounty:hover {
+            background-color: #ff4500;
+            /* 懸浮變亮紅 */
+            color: #fff !important;
+            transform: translate(3px, 3px);
+            box-shadow: 0px 0px 0px;
+        }
+
+        /* 懸賞令標籤 */
+        .badge-pixel {
+            background-color: #f39c12 !important;
+            color: #000 !important;
+            border: 3px solid #000;
+            border-radius: 0;
+            font-weight: bold;
+            top: -20px;
+            left: 30px;
+            padding: 8px 15px;
+            position: absolute;
+            z-index: 11;
+        }
+
+        #s12 {
+            background-color: #1a1a1a !important;
+            border-top: 6px solid #7cfc00;
+            /* 螢光綠存檔線 */
+            padding: 30px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* 像素格狀背景裝飾 */
+        #s12 .container {
+            background-image: radial-gradient(#333 1px, transparent 1px);
+            background-size: 10px 10px;
+        }
+
+        /* 導覽列改造 */
+        #s12 .nav-tabs {
+            border-bottom: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #s12 .nav-item {
+            margin: 5px 15px;
+        }
+
+        /* 版權資訊：模擬系統訊息 */
+        #s12 .nav-link.disabled {
+            color: #7cfc00 !important;
+            /* 系統綠 */
+            opacity: 1;
+            font-weight: bold;
+            background-color: #000;
+            border: 2px solid #333;
+            padding: 8px 20px;
+            image-rendering: pixelated;
+        }
+
+        #s12 .nav-link.disabled::before {
+            content: "[SYSTEM]: ";
+        }
+
+        /* 友站連結：模擬傳送按鈕 */
+        #s12 .nav-link:not(.disabled) {
+            color: #f39c12 !important;
+            border: 2px solid #8b5a2b;
+            background-color: #2c1e14;
+            border-radius: 0;
+            transition: 0.2s steps(2);
+        }
+
+        #s12 .nav-link:not(.disabled):hover {
+            background-color: #f39c12;
+            color: #000 !important;
+            transform: translateY(-3px);
+            box-shadow: 4px 4px 0px #000;
+        }
+
+        /* 隱藏 Bootstrap 預設的 hover 邊框色 */
+        #s12 .nav-tabs .nav-link:hover {
+            border-color: #fff;
+        }
+
+        /* Modal 容器整體風格 */
+        .modal-content {
+            background-color: #2c1e14 !important;
+            /* 深棕色背景 */
+            border: 6px solid #d4a373 !important;
+            /* 亮金色像素框 */
+            border-radius: 0 !important;
+            image-rendering: pixelated;
+            font-family: 'Courier New', monospace;
+            box-shadow: 20px 20px 0px #000 !important;
+        }
+
+        /* Header 標題列 */
+        .modal-header {
+            border-bottom: 4px solid #8b5a2b !important;
+            border-radius: 0 !important;
+            padding: 15px 25px;
+        }
+
+        .modal-header.text-bg-warning {
+            background-color: #f39c12 !important;
+            color: #000 !important;
+        }
+
+        .modal-header.text-bg-success {
+            background-color: #7cfc00 !important;
+            color: #000 !important;
+        }
+
+        .modal-title {
+            font-weight: 900 !important;
+            text-shadow: 1px 1px 0px #fff;
+            letter-spacing: 2px;
+        }
+
+        /* 關閉按鈕像素化 */
+        .btn-close {
+            filter: invert(1) grayscale(1) brightness(2);
+            opacity: 1;
+        }
+
+        /* 內文與條款 */
+        .modal-body {
+            color: #d4a373;
+            padding: 30px;
+        }
+
+        .modal-body .h2 {
+            color: #f39c12;
+            border-bottom: 2px dashed #8b5a2b;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .modal-body p {
+            color: #a1acbe;
+            font-size: 0.9rem;
+            border-left: 3px solid #8b5a2b;
+            padding-left: 10px;
+        }
+
+        /* 表單輸入框 */
+        .modal-body .form-label {
+            color: #f39c12;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .modal-body .form-control {
+            background-color: #1a1a1a;
+            border: 3px solid #8b5a2b;
+            border-radius: 0;
+            color: #7cfc00;
+            box-shadow: inset 4px 4px 0px #000;
+        }
+
+        .modal-body .form-control:focus {
+            border-color: #7cfc00;
+            box-shadow: 0 0 10px #7cfc00;
+            background-color: #000;
+        }
+
+        /* Footer 與 按鈕 */
+        .modal-footer {
+            border-top: 4px solid #8b5a2b !important;
+            padding: 20px;
+        }
+
+        .modal-footer a {
+            color: #7cfc00 !important;
+            text-decoration: underline !important;
+            font-size: 0.8rem;
+        }
+
+        .btn-pixel-secondary {
+            background-color: #4a4a4a;
+            color: #fff !important;
+            border: 3px solid #000;
+            border-radius: 0;
+            box-shadow: 4px 4px 0px #000;
+        }
+
+        .btn-pixel-primary {
+            background-color: #f39c12;
+            color: #000 !important;
+            border: 3px solid #000;
+            border-radius: 0;
+            font-weight: 900;
+            box-shadow: 4px 4px 0px #000;
+        }
+
+        .btn-pixel-primary:hover {
+            background-color: #fff;
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px;
+        }
+
+        #s13 {
+            background-color: #1a1a1a !important;
+            border-top: 8px solid #4a331e;
+            padding: 80px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .trophy-title {
+            color: #f39c12;
+            text-shadow: 4px 4px 0px #000;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+        }
+
+        /* 道具欄網格 */
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* 畫框：模擬 8-bit 物品槽 */
+        .trophy-item {
+            background-color: #2c1e14;
+            border: 4px solid #8b5a2b;
+            /* 銅色框 */
+            padding: 10px;
+            position: relative;
+            transition: all 0.2s steps(2);
+            box-shadow: 8px 8px 0px #000;
+            overflow: hidden;
+        }
+
+        .trophy-item:hover {
+            transform: scale(1.05);
+            border-color: #f39c12;
+            /* 選中時發光 */
+            box-shadow: 12px 12px 0px #000;
+            z-index: 10;
+        }
+
+        /* 照片像素感處理 */
+        .trophy-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            image-rendering: pixelated;
+            filter: grayscale(0.8) contrast(1.2);
+            /* 平時為灰階，模擬未解鎖 */
+            transition: 0.3s;
+        }
+
+        .trophy-item:hover .trophy-img {
+            filter: grayscale(0) contrast(1);
+            /* 移入時變回彩色，代表解鎖 */
+        }
+
+        /* 懸浮說名稱 (Achievement Label) */
+        .achievement-label {
+            position: absolute;
+            bottom: -50px;
+            /* 平時隱藏 */
+            left: 0;
+            right: 0;
+            background-color: #f39c12;
+            color: #000;
+            padding: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: 0.2s steps(2);
+            font-size: 0.8rem;
+        }
+
+        .trophy-item:hover .achievement-label {
+            bottom: 10px;
+            /* 移入時跳出 */
+        }
+
+        /* 角落裝飾：[Rare] 等級標籤 */
+        .rarity-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #b22222;
+            color: #fff;
+            font-size: 0.6rem;
+            padding: 2px 8px;
+            border: 1px solid #fff;
+            z-index: 5;
+        }
+
+        #s14 {
+            background-color: #2c1e14 !important;
+            border-top: 8px solid #8b5a2b;
+            padding: 80px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* 確保 Row 內部的內容高度一致 */
+        #s14 .row {
+            display: flex;
+            align-items: stretch;
+            /* 讓左右兩區塊高度對齊 */
+        }
+
+        /* 評價對話框 (左側) */
+        .testimonial-bubble {
+            background-color: #fdf5e6;
+            border: 4px solid #d4a373;
+            box-shadow: 8px 8px 0px #000;
+            padding: 20px;
+            position: relative;
+            margin-bottom: 30px;
+            image-rendering: pixelated;
+        }
+
+        .testimonial-bubble::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 30px;
+            border-width: 20px 20px 0 0;
+            border-style: solid;
+            border-color: #d4a373 transparent transparent transparent;
+        }
+
+        .quest-user-info {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .quest-user-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: #8b5a2b;
+            border: 2px solid #000;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 留言板 (右側) */
+        .comment-board {
+            background-color: #1a1a1a;
+            border: 6px double #d4a373;
+            padding: 30px;
+            color: #fff;
+            height: 100%;
+            /* 填滿欄位高度 */
+            box-shadow: inset 0 0 20px #000;
+        }
+
+        /* 互動愛心 CSS */
+        .pixel-rating-group {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            font-size: 2rem;
+        }
+
+        .pixel-rating-group input {
+            display: none;
+        }
+
+        .pixel-rating-group label {
+            cursor: pointer;
+            color: #4a331e;
+            transition: 0.1s;
+            padding: 0 5px;
+        }
+
+        .pixel-rating-group label:hover,
+        .pixel-rating-group label:hover~label,
+        .pixel-rating-group input:checked~label {
+            color: #ff4500;
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        /* 手機版調整 */
+        @media screen and (max-width: 991px) {
+            #s14 .row {
+                display: block;
+            }
+
+            /* 關閉並排 */
+            .comment-board {
+                margin-top: 50px;
+            }
+        }
+
+        #s15 {
+            background-color: #1a1a1a !important;
+            border-top: 8px solid #4a331e;
+            padding: 80px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* 指南容器 */
+        .handbook-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* 隱藏 Checkbox 用於觸發展開 */
+        .faq-toggle {
+            display: none;
+        }
+
+        /* 指南條目 */
+        .faq-item {
+            background-color: #2c1e14;
+            border: 4px solid #8b5a2b;
+            margin-bottom: 15px;
+            box-shadow: 6px 6px 0px #000;
+            overflow: hidden;
+            transition: 0.2s steps(2);
+        }
+
+        /* 標題區域 (問題) */
+        .faq-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background-color: #3d2b1f;
+            color: #f39c12;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .faq-header::before {
+            content: "[Q]";
+            margin-right: 15px;
+            color: #7cfc00;
+            /* 螢光綠 Q */
+        }
+
+        .faq-header:hover {
+            background-color: #4a331e;
+            color: #fff;
+        }
+
+        /* 內容區域 (答案) - 預設隱藏 */
+        .faq-body {
+            max-height: 0;
+            padding: 0 20px;
+            background-color: #2c1e14;
+            color: #d4a373;
+            transition: max-height 0.3s ease-out, padding 0.3s;
+            border-top: 0 solid #8b5a2b;
+        }
+
+        /* 當 Checkbox 被選中時展開內容 */
+        .faq-toggle:checked+.faq-header+.faq-body {
+            max-height: 500px;
+            /* 足夠大的高度 */
+            padding: 20px;
+            border-top-width: 2px;
+        }
+
+        /* 答案前面的標誌 */
+        .faq-body::before {
+            content: "[A]: ";
+            font-weight: bold;
+            color: #ff4500;
+            /* 亮橘紅 A */
+        }
+
+        /* 右側展開指示箭頭 */
+        .faq-header::after {
+            content: "▼";
+            margin-left: auto;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .faq-toggle:checked+.faq-header::after {
+            transform: rotate(180deg);
+        }
+
+        /* 掃描線效果 (延續網頁風格) */
+        .faq-item {
+            position: relative;
+        }
+
+        .faq-item::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.02) 0px, transparent 1px);
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- *********************************s01 社群連結************************************** -->
+    <section id="s01">
+        <div class="container">
+            <div class="text-end py-2">
+                <!-- 保持原架構，透過 CSS 注入靈魂 -->
+                <a href="#" class="text-decoration-none">
+                    <i class="fa-brands fa-facebook fa-2x"></i>
+                </a>
+
+                <a href="#" class="text-decoration-none">
+                    <i class="fa-brands fa-line fa-2x"></i>
+                </a>
+
+                <a href="#" class="text-decoration-none">
+                    <i class="fa-brands fa-twitter fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- *********************************s02 選單************************************** -->
+    <section id="s02">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <!-- 標誌：蒸氣慶典 -->
+                    <a class="navbar-brand" href="#">
+                        <i class="fa-solid fa-champagne-glasses fa-shake fa-3x" style="color: #d4a373;"></i>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <i class="fa-regular fa-house"></i>
+                                    大廳 (HOME)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa-solid fa-info"></i>
+                                    冒險日誌 (ABOUT)</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    任務委託 (SERVICES)
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">慶功派對</a></li>
+                                    <li><a class="dropdown-item" href="#">商會晚宴</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider" style="background-color: #8b5a2b;">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">秘密集會</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div>
+                            <!-- 按鈕文案修改：符合遊戲語境 -->
+                            <button class="btn btn-outline-warning" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">新隊員招募</button>
+                            <button class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">英雄歸還</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- *********************************s03-2 carusal 幻燈片效果************************************** -->
+    <section id="s03">
+        <div class="container">
+            <!-- 裝飾標題：維持你喜歡的閃爍特效 -->
+            <div class="h4 text-warning fw-900 mb-4 wow animate__flash" data-wow-iteration="infinite"
+                data-wow-duration="2s" style="font-family: 'Courier New', monospace;">
+                ▶ [ 冒險紀錄存檔中... ]
+            </div>
+
+            <!-- 故事箱主體 -->
+            <div class="story-box-frame">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                            class="active"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+                        <!-- 第一關：校園 -->
+                        <div class="carousel-item active">
+                            <img src="images/001.jpg" class="d-block w-100 s03-img" alt="...">
+                            <!-- 對話框：彈入效果 -->
+                            <div
+                                class="carousel-caption carousel-caption-block text-start p-4 animate__animated animate__bounceInLeft">
+                                <div class="carousel-badge animate__animated animate__fadeInDown animate__delay-1s">
+                                    <i class="fa-solid fa-briefcase"></i> 任務：公會聯名
+                                </div>
+                                <div class="h2 fw-900 my-2 text-warning">【關卡一】校園傳說方案</div>
+                                <p class="mb-3 text-white-50 small">新手村創意融合傳奇企劃，打造不尷尬的慶典。</p>
+
+                                <!-- 按鈕組：果凍跳動感 -->
+                                <div class="animate__animated animate__fadeInUp animate__delay-1s">
+                                    <button
+                                        class="btn btn-warning btn-sm fw-bold border-dark animate__animated animate__pulse animate__infinite">召喚顧問</button>
+                                    <button class="btn btn-outline-light btn-sm fw-bold ms-2">攻略手冊</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 第二關：尾牙 -->
+                        <div class="carousel-item">
+                            <img src="images/002.jpg" class="d-block w-100 s03-img" alt="...">
+                            <!-- 對話框 -->
+                            <div
+                                class="carousel-caption carousel-caption-block text-start p-4 animate__animated animate__bounceInLeft">
+                                <div class="carousel-badge animate__animated animate__fadeInDown animate__delay-1s">
+                                    <i class="fa-solid fa-briefcase"></i> 任務：王城盛宴
+                                </div>
+                                <div class="h2 fw-900 my-2 text-warning">【關卡二】企業年度慶典</div>
+                                <p class="mb-3 text-white-50 small">點亮城堡篝火，將團隊羈絆化為輝煌盛典。</p>
+
+                                <div class="animate__animated animate__fadeInUp animate__delay-1s">
+                                    <button
+                                        class="btn btn-warning btn-sm fw-bold border-dark animate__animated animate__pulse animate__infinite">召喚顧問</button>
+                                    <button class="btn btn-outline-light btn-sm fw-bold ms-2">攻略手冊</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 第三關：生日 -->
+                        <div class="carousel-item">
+                            <img src="images/003.jpg" class="d-block w-100 s03-img" alt="...">
+                            <!-- 對話框 -->
+                            <div
+                                class="carousel-caption carousel-caption-block text-start p-4 animate__animated animate__bounceInLeft">
+                                <div class="carousel-badge animate__animated animate__fadeInDown animate__delay-1s">
+                                    <i class="fa-solid fa-briefcase"></i> 任務：個人支線
+                                </div>
+                                <div class="h2 fw-900 my-2 text-warning">【最終章】專屬誕生之日</div>
+                                <p class="mb-3 text-white-50 small">用場景魔法紀錄英雄覺醒的每一刻。</p>
+
+                                <div class="animate__animated animate__fadeInUp animate__delay-1s">
+                                    <button
+                                        class="btn btn-warning btn-sm fw-bold border-dark animate__animated animate__pulse animate__infinite">召喚顧問</button>
+                                    <button class="btn btn-outline-light btn-sm fw-bold ms-2">攻略手冊</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 控制鈕 -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"
+                            style="filter: invert(1) hue-rotate(30deg);"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"
+                            style="filter: invert(1) hue-rotate(30deg);"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- *********************************s04 量化數字************************************** -->
+    <section id="s04">
+        <div class="row align-items-center g-0">
+            <div class="col-md-5 bg-cover d-none d-md-block"
+                style="background-image: url(images/004.jpg); height: 500px;"></div>
+            <div class="col-md-7 ps-md-5 py-5 px-4">
+                <div class="h2">
+                    冒險紀元 2020 年 <span class="text-success fw-900">[全台首創]</span>
+                </div>
+                <div class="h2 my-3">傳奇派對大師公會</div>
+                <p>在工業革命與魔法交織的時代，我們是首批掌握「歡樂鍊金術」的團隊。</p>
+                <p>不只是策劃一場活動，而是為每位委託人開啟一道通往異世界的傳送門。</p>
+                <p>這不是演習，這是屬於你的傳奇史詩篇章。</p>
+
+                <div class="row mt-5 text-center">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="bg-success mt-3 p-3 shadow-lg">
+                            <div class="h5">完成任務</div>
+                            <div class="h4"><span class="text-primary h1 fw-900 counter">200</span>+</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="bg-success mt-3 p-3 shadow-lg">
+                            <div class="h5">公會榮譽</div>
+                            <div class="h5"><span class="text-primary h1 fw-900 counter">20</span>項</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="bg-success mt-3 p-3 shadow-lg">
+                            <div class="h5">認證技能</div>
+                            <div class="h5"><span class="text-primary h1 fw-900 counter">159</span>級</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="bg-success mt-3 p-3 shadow-lg">
+                            <div class="h5">冒險據點</div>
+                            <div class="h5"><span class="text-primary h1 fw-900 counter">100</span>處</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- *********************************s05 時間軸 派對流程************************************** -->
+        <section id="s05" class="bg-cover" style="background-image: url(images/05.jpg); background-attachment: fixed;">
+            <div class="container s05-container">
+                <div class="display-2 text-center my-5 text-warning-pixel">冒險攻略</div>
+
+                <div class="s05-timeline-section">
+
+                    <!-- STAGE 01 -->
+                    <div class="row align-items-center timeline-section-pointer">
+                        <div class="col-md-6">
+                            <div class="s05-box">
+                                <div class="h2 text-warning-pixel">STG 01. 領受神諭</div>
+                                <p class="text-white-50 m-0">
+                                    冒險的起點始於想像。我們將與您共同推演世界觀，從維多利亞蒸汽奇幻到賽博霓虹，為您的派對注入靈魂核心。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-none d-md-block">
+                            <div class="s05-img-box bg-cover wow animate__backInRight" data-wow-duration="2s"
+                                data-wow-delay="0s" data-wow-iteration="1"
+                                style="background-image: url(images/06.jpg); height: 200px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- STAGE 02 -->
+                    <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                        <div class="col-md-6">
+                            <div class="s05-box text-md-end">
+                                <div class="h2 text-warning-pixel">STG 02. 地圖繪製</div>
+                                <p class="text-white-50 m-0">
+                                    好的場景是沉浸的關鍵。透過動線與光影魔法，將平凡空間轉化為傳奇地圖，讓每一處細節都成為拍照焦點。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-none d-md-block">
+                            <div class="s05-img-box bg-cover wow animate__backInLeft" data-wow-duration="2s"
+                                data-wow-delay="0s" data-wow-iteration="1"
+                                style="background-image: url(images/07.jpg); height: 200px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- STAGE 03 -->
+                    <div class="row align-items-center timeline-section-pointer">
+                        <div class="col-md-6">
+                            <div class="s05-box">
+                                <div class="h2 text-warning-pixel">STG 03. 英雄集結</div>
+                                <p class="text-white-50 m-0">
+                                    鐘聲響起，NPC 將接管戰場。從專業流程引導到緊湊互動遊戲，我們精準掌控氣氛，拒絕任何尷尬時刻。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-none d-md-block">
+                            <div class="s05-img-box bg-cover wow animate__backInRight" data-wow-duration="2s"
+                                data-wow-delay="0s" data-wow-iteration="1"
+                                style="background-image: url(images/08.jpg); height: 200px;"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- *********************************s06 企業精神************************************** -->
+        <section id="s06">
+            <div class="container">
+                <div class="row">
+                    <!-- 勳章 01：齒輪 (代表精密與執行力) -->
+                    <div class="col-md-4 text-center guild-medal-card">
+                        <i class="fa-solid fa-gears fa-7x wow animate__fadeInTopLeft" data-wow-duration="2s"
+                            data-wow-delay="0s" data-wow-iteration="1" style="color: #7cfc00;"></i>
+                        <div class="medal-frame wow animate__fadeInBottomLeft" data-wow-duration="1s"
+                            data-wow-delay="0s" data-wow-iteration="1">
+                            <div class="h2 medal-title">核心動力：執行</div>
+                        </div>
+                        <p class="medal-desc">
+                            我們如同精密的蒸汽齒輪，在 8-bit 的世界裡準確契合。從細節的打磨到整體的控場，確保每場派對都能像完美運轉的機械，永不停歇。
+                        </p>
+                    </div>
+
+                    <!-- 勳章 02：地圖卷軸 (代表創意與規劃) -->
+                    <div class="col-md-4 text-center guild-medal-card">
+                        <i class="fa-solid fa-map-location-dot fa-7x wow animate__fadeInDown" data-wow-duration="2s"
+                            data-wow-delay="0s" data-wow-iteration="1" style="color: #f39c12;"></i>
+                        <div class="medal-frame wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0s"
+                            data-wow-iteration="1">
+                            <div class="h2 medal-title">靈魂地圖：創意</div>
+                        </div>
+                        <p class="medal-desc">
+                            每一場活動都是一份未知的冒險地圖。我們運用無限的想像力，為委託人標記出所有隱藏的驚喜點，將平凡的空間轉化為傳說中的聖地。
+                        </p>
+                    </div>
+
+                    <!-- 勳章 03：藥水瓶 (代表氛圍與化學反應) -->
+                    <div class="col-md-4 text-center guild-medal-card">
+                        <i class="fa-solid fa-flask-vial fa-7x wow animate__fadeInTopRight" data-wow-duration="2s"
+                            data-wow-delay="0s" data-wow-iteration="1" style="color: #ff4500;"></i>
+                        <div class="medal-frame wow animate__fadeInBottomRight" data-wow-duration="1s"
+                            data-wow-delay="0s" data-wow-iteration="1">
+                            <div class="h2 medal-title">氛圍鍊金：沉浸</div>
+                        </div>
+                        <p class="medal-desc">
+                            我們是派對界的鍊金術師，將音樂、光影與互動揉合，調配出名為「歡樂」的秘藥。讓參與者在喝下這份驚喜後，徹底沉浸在我們創造的世界。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- *********************************s07 方案介紹 對角線排版************************************** -->
+        <section id="s07" class="position-relative">
+            <div class="pixel-bg-side" style="background-image: url(images/05.jpg);"></div>
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col-lg-7 pixel-scroll-box" style="box-shadow: -20px 20px 0px #000;">
+                        <div class="h3 pixel-headline">【 冒險公會：維多利亞傳奇 】</div>
+                        <p class="fs-5 mb-4">
+                            在 19 世紀的工業迷霧中，我們不僅是慶典的執行者，更是「快樂能量」的鍊金術師。每一幀 8-bit
+                            的閃爍，都代表著一段被精心封存的傳奇故事。我們將蒸氣龐克的精密與像素藝術的純粹合而為一，為您的活動打造前所未有的「位元級」沉浸體驗。
+                        </p>
+
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <div class="h4 text-dark"><span class="achievement-icon">🏆</span>公會資歷</div>
+                                <p class="small">深耕全台領地，解鎖超過 1,000 場史詩級慶典任務，擁有最高等級的「活動執行」聲望。</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="h4 text-dark"><span class="achievement-icon">⚔️</span>核心戰力</div>
+                                <p class="small">由高階通訊官、吟遊詩人與場域魔法師組成，精準擊碎「尷尬、無聊、冷場」等負面魔物。</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="h4 text-dark"><span class="achievement-icon">🛡️</span>安全協定</div>
+                                <p class="small">具備最完整的保險契約與現場秩序守護，確保英雄們在狂歡時毫無後顧之憂。</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="h4 text-dark"><span class="achievement-icon">📜</span>未來地圖</div>
+                                <p class="small">持續開發全新的「慶典模組」，引領 19 世紀與數位時代的完美碰撞。</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-pixel-action">解鎖完整公會日誌</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- *********************************s08 方案介紹 對角線排版************************************** -->
+        <section id="s08">
+            <div class="container">
+                <div class="display-2 text-center fw-900 my-3 text-warning">公會英雄 (TEAM)</div>
+                <div class="row" id="mybody">
+
+                    <!-- 成員 01 -->
+                    <div class="col-sm-6 col-xl-3 mt-4">
+                        <div class="d-flex align-items-center">
+                            <img src="images/004.jpg" class="s08-userimg me-3" alt="">
+                            <div>
+                                <div class="h1">傳奇吟遊詩人</div>
+                                <p class="h5">稱號: 派對領航者</p>
+                                <p class="h5">技能: 絕對熱場、節奏掌控</p>
+                                <div class="hp-bar">
+                                    <div class="hp-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 成員 02 -->
+                    <div class="col-sm-6 col-xl-3 mt-4">
+                        <div class="d-flex align-items-center">
+                            <img src="images/005.jpg" class="s08-userimg me-3" alt="">
+                            <div>
+                                <div class="h1">蒸氣工藝大師</div>
+                                <p class="h5">稱號: 氣氛鍊金師</p>
+                                <p class="h5">技能: 幻影佈置、場域魔法</p>
+                                <div class="hp-bar">
+                                    <div class="hp-fill" style="width: 92%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 成員 03 -->
+                    <div class="col-sm-6 col-xl-3 mt-4">
+                        <div class="d-flex align-items-center">
+                            <img src="images/006.jpg" class="s08-userimg me-3" alt="">
+                            <div>
+                                <div class="h1">時空秩序官</div>
+                                <p class="h5">稱號: 流程守護者</p>
+                                <p class="h5">技能: 精準控時、神級調度</p>
+                                <div class="hp-bar">
+                                    <div class="hp-fill" style="width: 88%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 成員 04 -->
+                    <div class="col-sm-6 col-xl-3 mt-4">
+                        <div class="d-flex align-items-center">
+                            <img src="images/007.jpg" class="s08-userimg me-3" alt="">
+                            <div>
+                                <div class="h1">高階通訊官</div>
+                                <p class="h5">稱號: 需求編碼員</p>
+                                <p class="h5">技能: 願望解碼、完美諮詢</p>
+                                <div class="hp-bar">
+                                    <div class="hp-fill" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- *********************************s09 呼應s07 對角線排版 收費方案介紹************************************** -->
+        <section id="s09" class="position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 pixel-scroll-box" style="box-shadow: 20px 20px 0px #000;">
+                        <div class="h1 pixel-headline">冒險報酬與委託契約</div>
+                        <p class="mb-4"><i>「在商店中挑選您的戰鬥包，開啟專屬您的傳奇篇章。」</i></p>
+
+                        <dl class="row">
+                            <!-- 方案 01 -->
+                            <dt class="col-sm-4 mb-4">
+                                <span class="badge bg-danger p-2 mb-2">🔥 勇者推薦</span><br>
+                                <span class="d-block small">[經典等級]</span>
+                                <span class="d-block mt-1">狂歡契約</span>
+                            </dt>
+                            <dd class="col-sm-8 mb-4 border-bottom border-dark pb-4">
+                                <h4 class="fw-900" style="color:#b22222">GOLD 8,800 <small class="text-muted">/ 4
+                                        HR</small></h4>
+                                <p>為中型公會量身打造的精銳方案。包含高階隔音結界(包廂)、史詩音響系統，以及由魔法師精心配置的「像素感」慶典佈置。</p>
+                                <div class="row small">
+                                    <div class="col-6">✔ 回靈藥水無限續杯</div>
+                                    <div class="col-6">✔ 體力炸物補給包</div>
+                                    <div class="col-6">✔ 慶功酒水免稅</div>
+                                    <div class="col-6">✔ 專屬拍照背景解鎖</div>
+                                </div>
+                            </dd>
+
+                            <!-- 方案 02 -->
+                            <dt class="col-sm-4 mb-4">
+                                <span class="badge bg-dark border border-warning p-2 mb-2">👑 領主專屬</span><br>
+                                <span class="d-block small">[傳奇等級]</span>
+                                <span class="d-block mt-1">尊榮包場</span>
+                            </dt>
+                            <dd class="col-sm-8 mb-4 border-bottom border-dark pb-4">
+                                <h4 class="fw-900" style="color:#b22222">GOLD 22,000 <small class="text-muted">/ 6
+                                        HR</small></h4>
+                                <p>提供整座領地的絕對掌控權。適合舉行大型商會盛宴、王城尾牙，或至高無上的求婚誓約任務。內含禁咒級全場燈光秀與 5 星級外燴食譜。</p>
+                                <p><b>附贈：</b> 高階通訊官(小管家)全程護航，處理一切冒險中的突發狀況。</p>
+                            </dd>
+
+                            <!-- 加購項目 -->
+                            <dt class="col-sm-4">
+                                <span class="d-block mt-1">支線任務</span>
+                                <span class="d-block mt-1">裝備加購</span>
+                            </dt>
+                            <dd class="col-sm-8">
+                                <div class="p-3 mb-2" style="background: rgba(0,0,0,0.1); border: 2px dashed #8b5a2b;">
+                                    <ul class="list-unstyled mb-0 small">
+                                        <li>✦ 駐場鍊金術師(調酒師) 3hr ........... <b>+$5,000</b></li>
+                                        <li>✦ 吟遊詩人駐唱/幻術表演 1hr ......... <b>+$6,500</b></li>
+                                        <li>✦ 史詩影像封印(動態錄影) ............. <b>+$8,000 起</b></li>
+                                    </ul>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="pixel-bg-side" style="background-image: url(images/06.jpg);"></div>
+        </section>
+        <!-- *********************************s10 客戶需求表************************************** -->
+        <section id="s10">
+            <div class="container py-3">
+                <div class="h1 text-center text-warning fw-900 mb-5" style="text-shadow: 3px 3px 0px #000;">
+                    [ 駐點位置與委託發布 ]
+                </div>
+                <div class="row">
+                    <!-- 左側：監視器地圖 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="map-monitor-frame">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29120.73246920678!2d120.61710179999997!3d24.16852155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693e1e5070a7a7%3A0xa462167a0845084d!2z6Lev5oCd576p5pWZ5aCC!5e0!3m2!1szh-TW!2stw!4v1776137941994!5m2!1szh-TW!2stw"
+                                width="100%" height="450" style="border:0; filter: grayscale(0.5) contrast(1.2);"
+                                allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- 右側：任務委託表單 -->
+                    <div class="col-md-6">
+                        <div class="quest-form-box">
+                            <div class="mb-3">
+                                <label class="form-label">> 冒險者姓名 (NAME)</label>
+                                <input type="text" class="form-control" placeholder="輸入您的代號...">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">> 通訊波段 (EMAIL)</label>
+                                <input type="email" class="form-control" placeholder="電子郵件地址">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">> 聯絡音頻 (TEL)</label>
+                                <input type="text" class="form-control" placeholder="電話號碼">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">> 戰隊規模 (MEMBERS)</label>
+                                <input type="number" class="form-control" placeholder="預估參與人數">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">> 補給需求 (CATERING)</label>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="rad01" id="c01">
+                                    <label for="c01" class="form-check-label">需要能量補給</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="rad01" id="c02">
+                                    <label for="c02" class="form-check-label">無需補給</label>
+                                </div>
+                            </div>
+                            <div class="row g-2 mt-4">
+                                <div class="col-6">
+                                    <button class="btn btn-quest-cancel w-100">取消發布</button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-quest-confirm w-100">確定委託</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- *********************************s13 作品************************************** -->
+        <section id="s13">
+            <div class="container">
+                <div class="display-3 text-center fw-900 trophy-title">戰利品陳列室</div>
+
+                <div class="inventory-grid">
+                    <!-- 戰利品 01 -->
+                    <div class="trophy-item">
+                        <span class="rarity-tag">EPIC</span>
+                        <img src="images/001.jpg" class="trophy-img" alt="">
+                        <div class="achievement-label">[ 解鎖：千人狂歡聖典 ]</div>
+                        <div class="mt-2 text-center small" style="color:#d4a373">台北 - 2024 企業盛宴</div>
+                    </div>
+
+                    <!-- 戰利品 02 -->
+                    <div class="trophy-item">
+                        <span class="rarity-tag">RARE</span>
+                        <img src="images/002.jpg" class="trophy-img" alt="">
+                        <div class="achievement-label">[ 解鎖：霓虹像素之夜 ]</div>
+                        <div class="mt-2 text-center small" style="color:#d4a373">台中 - 2023 生日任務</div>
+                    </div>
+
+                    <!-- 戰利品 03 -->
+                    <div class="trophy-item">
+                        <span class="rarity-tag">LEGEND</span>
+                        <img src="images/003.jpg" class="trophy-img" alt="">
+                        <div class="achievement-label">[ 解鎖：蒸汽龐克婚約 ]</div>
+                        <div class="mt-2 text-center small" style="color:#d4a373">高雄 - 2024 傳奇婚禮</div>
+                    </div>
+
+                    <!-- 戰利品 04 -->
+                    <div class="trophy-item">
+                        <span class="rarity-tag">EPIC</span>
+                        <img src="images/004.jpg" class="trophy-img" alt="">
+                        <div class="achievement-label">[ 解鎖：校園冒險嘉年華 ]</div>
+                        <div class="mt-2 text-center small" style="color:#d4a373">新竹 - 2024 學園祭典</div>
+                    </div>
+
+                    <!-- 戰利品 05 -->
+                    <div class="trophy-item">
+                        <span class="rarity-tag">RARE</span>
+                        <img src="images/005.jpg" class="trophy-img" alt="">
+                        <div class="achievement-label">[ 解鎖：地窖秘密集會 ]</div>
+                        <div class="mt-2 text-center small" style="color:#d4a373">台北 - 2023 商會聚會</div>
+                    </div>
+
+                    <!-- 戰利品 06 -->
+                    <div class="trophy-item">
+                        <span class="rarity-tag">RARE</span>
+                        <img src="images/006.jpg" class="trophy-img" alt="">
+                        <div class="achievement-label">[ 解鎖：頂級商會尾牙 ]</div>
+                        <div class="mt-2 text-center small" style="color:#d4a373">台南 - 2024 年度派對</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- *********************************s14 評價************************************** -->
+        <section id="s14">
+            <div class="container">
+                <div class="h1 text-center text-warning fw-900 mb-5" style="text-shadow: 4px 4px 0px #000;">
+                    [ 酒館傳聞：冒險者的評價 ]
+                </div>
+
+                <div class="row">
+                    <!-- 左側：NPC 歷史評價 (佔 6 格) -->
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="testimonial-bubble">
+                            <p class="text-dark fw-bold">「這場派對簡直像被施了高級幻術！我們公會成員的興奮值直接爆表，沒見過這麼懂像素風的團隊。」</p>
+                            <div class="quest-user-info">
+                                <div class="quest-user-avatar text-white">👤</div>
+                                <div>
+                                    <div class="text-dark small fw-bold">薩爾斯公會長</div>
+                                    <div style="color: #ff4500;">❤❤❤❤❤</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-bubble">
+                            <p class="text-dark fw-bold">「報酬給得很划算，活動控場精準得像齒輪運作。特別推薦他們的『傳奇包場方案』！」</p>
+                            <div class="quest-user-info">
+                                <div class="quest-user-avatar text-white">🛡️</div>
+                                <div>
+                                    <div class="text-dark small fw-bold">王城防衛隊經理</div>
+                                    <div style="color: #ff4500;">❤❤❤❤</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右側：發布評價表單 (佔 6 格) -->
+                    <div class="col-lg-6">
+                        <div class="comment-board">
+                            <div class="h2 mb-4 text-warning"
+                                style="border-bottom: 2px solid #f39c12; padding-bottom: 10px;">書寫你的冒險回憶錄</div>
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label text-warning">> 勇者名號 (NICKNAME)</label>
+                                    <input type="text"
+                                        class="form-control pixel-input bg-dark text-success border-warning"
+                                        style="border-radius:0;" placeholder="如何稱呼您...">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-warning">> 冒險心得 (MESSAGE)</label>
+                                    <textarea class="form-control pixel-input bg-dark text-success border-warning"
+                                        style="border-radius:0;" rows="4" placeholder="請寫下您的派對傳聞..."></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-warning">> 滿意度等級 (RANKING)</label>
+                                    <div class="pixel-rating-group">
+                                        <input type="radio" name="star" id="s5" value="5"><label for="s5">❤</label>
+                                        <input type="radio" name="star" id="s4" value="4"><label for="s4">❤</label>
+                                        <input type="radio" name="star" id="s3" value="3"><label for="s3">❤</label>
+                                        <input type="radio" name="star" id="s2" value="2"><label for="s2">❤</label>
+                                        <input type="radio" name="star" id="s1" value="1"><label for="s1">❤</label>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-pixel-primary w-100 py-3 mt-2">提交史詩評價</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ********************************* s15 會員登入 (英雄歸還) ************************************** -->
+        <section id="s15">
+            <div class="container">
+                <div class="h1 text-center text-warning fw-900 mb-5" style="text-shadow: 4px 4px 0px #000;">
+                    [ 冒險指南：常見疑難排除 ]
+                </div>
+
+                <div class="handbook-container">
+                    <!-- 問題 01 -->
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq1" class="faq-toggle">
+                        <label for="faq1" class="faq-header">派對任務需要提前多久預約？</label>
+                        <div class="faq-body">
+                            建議於冒險日 14 天前簽署契約，以便公會準備充足的補給品與場域魔法佈置。若是史詩級的大型慶典，建議提前 30 天聯繫通訊官。
+                        </div>
+                    </div>
+
+                    <!-- 問題 02 -->
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq2" class="faq-toggle">
+                        <label for="faq2" class="faq-header">如果天候不佳，任務會取消嗎？</label>
+                        <div class="faq-body">
+                            公會擁有強大的室內結界防護，大多數任務不受天候影響。若因極端魔法災害（颱風、天災）導致領地封鎖，我們提供延期或歸還訂金之協定。
+                        </div>
+                    </div>
+
+                    <!-- 問題 03 -->
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq3" class="faq-toggle">
+                        <label for="faq3" class="faq-header">可以攜帶外部的魔藥或食物嗎？</label>
+                        <div class="faq-body">
+                            除「經典狂歡方案」附贈的補給外，我們歡迎冒險者自備酒水（且免收開瓶規費）。若需委託公會代訂高級食譜，可查閱加購項目。
+                        </div>
+                    </div>
+
+                    <!-- 問題 04 -->
+                    <div class="faq-item">
+                        <input type="checkbox" id="faq4" class="faq-toggle">
+                        <label for="faq4" class="faq-header">如果毀損了公會的道具該如何處理？</label>
+                        <div class="faq-body">
+                            損壞領地設備需依「黑市原價」金幣進行賠償。請各位英雄在狂歡之餘，務必溫柔對待現場的蒸汽設備與像素裝飾。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- *********************************s11 徵才************************************** -->
+        <section id="s11">
+            <div class="row g-0">
+                <!-- 職缺 01 -->
+                <div class="col-md-6 bg-cover" style="background-image: url(images/007.jpg);">
+                    <div class="row justify-content-center">
+                        <div class="col-md-9 p-4 m-5 bounty-poster">
+                            <span class="badge-pixel">召集令 (URGENT)</span>
+                            <div class="h2 fw-900 mt-4">【 首席業務法師 】</div>
+                            <div class="mt-3 gold-reward">任務報酬: GOLD 500,000+ / 月</div>
+                            <p>
+                                在 19 世紀的冒險浪潮中，我們正在尋找一位具備「利益洞察」與「溝通魔法」的精英。
+                                您的任務是與各大領地商會簽署和平派對條約，解鎖隱藏的商業寶庫。
+                                加入我們，成為改變像素歷史的關鍵人物！
+                            </p>
+                            <a href="#" class="btn btn-bounty w-100 mt-3">接受委託 (JOIN US)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 職缺 02 -->
+                <div class="col-md-6 bg-cover" style="background-image: url(images/007.jpg);">
+                    <div class="row justify-content-center">
+                        <div class="col-md-9 p-4 m-5 bounty-poster">
+                            <span class="badge-pixel">召集令 (URGENT)</span>
+                            <div class="h2 fw-900 mt-4">【 區域領地經理 】</div>
+                            <div class="mt-3 gold-reward">任務報酬: GOLD 500,000+ / 月</div>
+                            <p>
+                                負責守護並擴張公會的慶典版圖。您需要調度旗下的派對小隊，
+                                針對不同領地的探險者產出高品質的慶典模組。
+                                如果您擁有鋼鐵般的意志與對 8-bit 風格的狂熱，歡迎踏入我們的殿堂。
+                            </p>
+                            <a href="#" class="btn btn-bounty w-100 mt-3">接受委託 (JOIN US)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- *********************************s12 友善連結************************************** -->
+        <section id="s12">
+            <div class="container">
+                <ul class="nav nav-tabs">
+                    <!-- 系統存檔資訊 -->
+                    <li class="nav-item">
+                        <a class="nav-link disabled fw-900" href="#">POWER BY PIXEL-GUILD 2026.04</a>
+                    </li>
+
+                    <!-- 傳送門連結 -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">傳送至 友站-A</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">傳送至 友站-B</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- *********************************登入介面************************************** -->
+        <!-- ********************************* 註冊會員 (新英雄契約) ************************************** -->
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header text-bg-warning">
+                        <h1 class="modal-title fs-5">[ 簽署新英雄契約 ]</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 border-end border-secondary">
+                                <div class="h2">公會冒險守則</div>
+                                <p>1. 英雄需對所有派對細節保密，不得洩露鍊金術配方。</p>
+                                <p>2. 在慶典期間需保持最高昂的體力值與鬥志。</p>
+                                <p>3. 違反公會條款者將被取消其傳奇勳章資格。</p>
+                                <p>4. 簽署後即視為接受 19 世紀像素世界的召喚。</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">> 英雄代號 (ID)</label>
+                                    <input type="text" class="form-control" placeholder="輸入您的帳號">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">> 加密符文 (PW)</label>
+                                    <input type="password" class="form-control" placeholder="設定密碼">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">> 符文確認 (RE-PW)</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">> 通訊波段 (EMAIL)</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="checkAgree">
+                                    <label for="checkAgree" class="form-check-label">我已閱讀並同意簽署</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="me-auto" data-bs-toggle="modal" data-bs-target="#loginModal">已有英雄身分？</a>
+                        <button type="button" class="btn btn-pixel-secondary" data-bs-dismiss="modal">撤回</button>
+                        <button type="button" class="btn btn-pixel-primary">確認契約</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ********************************* 會員登入 (英雄歸還) ************************************** -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header text-bg-success">
+                        <h1 class="modal-title fs-5">[ 英雄身分驗證 ]</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <i class="fa-solid fa-user-shield fa-5x mb-4" style="color: #7cfc00;"></i>
+                        <div class="text-start">
+                            <div class="mb-3">
+                                <label class="form-label">> 英雄代號 (ACCOUNT)</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">> 驗證符文 (PASSWORD)</label>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="me-auto" data-bs-toggle="modal" data-bs-target="#registerModal">尚未受召？點此註冊</a>
+                        <button type="button" class="btn btn-pixel-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-pixel-primary">身分確認</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="css/bootstrap.bundle.min.js"></script>
+        <script src="css/jquery-4.0.0.js"></script>
+        <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+        <script src="css/wow.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+        <script>
+            $(function () {
+                const counterUp = window.counterUp.default
+
+                const callback = entries => {
+                    entries.forEach(entry => {
+                        const el = entry.target
+                        if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                            counterUp(el, {
+                                duration: 2000,
+                                delay: 16,
+                            })
+                            el.classList.add('is-visible')
+                        }
+                    })
+                }
+
+                const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+                // const el = document.querySelector('.counter')
+                // IO.observe(el)
+                const counters = document.querySelectorAll('.counter')
+                counters.forEach(el => {
+                    IO.observe(el)
+                })
+
+                $.ajax({
+                    type: "GET",
+                    url: "https://randomuser.me/api/?results=8",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+
+                        productData = data.results;
+
+                        renderTable(productData);
+                    },
+                    error: function (res) {
+                        console.log(res.responseJSON);
+                        Swal.fire({
+                            title: "讀取失敗",
+                            text: "api連結失敗: http://127.0.0.1:5000/productshttps://randomuser.me/api/?results=8",
+                            icon: "error"
+                        });
+                    }
+                });
+
+                function renderTable(data) {
+                    $("#mybody").empty();
+                    let list = Array.isArray(data) ? data : (data.products || []);
+                    list.forEach(function (item) {
+                        let strHTML = `<div class="col-sm-6 col-xl-3 mt-3">
+                                        <div class="d-flex">
+                                            <img src="${item.picture.large}" class="s08-userimg me-4" alt="">
+                                            <div>
+                                                <div class="h1">${item.name.title}${item.name.last}</div>
+                                                <p class="h5">暱稱:${item.name.first}</p>
+                                                <p class="h5">性別:${item.gender}</p>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                        $("#mybody").append(strHTML);
+                    });
+                };
+
+            })
+
+        </script>
+
+</body>
+
+</html>

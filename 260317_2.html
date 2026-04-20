@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh.TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="css/jquery-4.0.0.js"></script>
+    <script src="css/travelData.js"></script>
+    <script>
+        
+        console.log(normalize(travelData));
+
+        //清洗資料的自訂函式
+        const result = normalize(travelData).filter(function(item){
+            return item.Name.includes("美食") || 
+                   item.City.includes("美食") ||
+                   item.Tel.includes("美食") ||
+                   item.Hostwords.includes("美食");
+        });
+
+        console.log(result);
+
+        function normalize(data){
+            return data.map(function(item){
+                const tel = (item.Tel ?? "").trim();
+                const name = (item.Name ?? "").trim();
+                const city = (item.City ?? "").trim();
+                const hostwords = (item.HostWords ?? "").trim();
+                return {
+                    Name: name === "" ? "未提供名字" : name,
+                    City: city === "" ? "未提供地址" : city,
+                    Tel: tel === "" ? "未提供電話" : tel,
+                    Hostwords: hostwords === "" ? "未提供簡介" : hostwords
+                    
+                };
+            });
+        };
+
+
+    </script>
+</body>
+
+</html>

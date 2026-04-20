@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格3</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+
+    <style>
+
+
+
+        .table thead tr th {
+            text-align: center;
+            font-size: 20px;
+            white-space: nowrap;
+            /* padding: 0px 50px;  */
+        }
+
+        .table tbody tr td {
+            text-align: center;
+            white-space: nowrap;
+            /* padding: 0px 50px;  */
+        }
+
+        .table img {
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 1px #757474;
+        }
+
+        @media screen and (max-width: 768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: solid var(--mycolor05);
+                margin-top: 10px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td::before {
+                content: attr(data-th) "：";
+                font-size: 16px;
+                font-weight: 900;
+                float: left;
+                width: 30%;
+                text-align: right;
+                padding-right: 1em;
+                display: block;
+            }
+
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="title-01 text-center " id="mytitle">表格</div>
+        <table class="table table-rwd table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>編號</th>
+                    <th>站點名稱</th>
+                    <th>站點地址</th>
+                    <th>車輛總數</th>
+                    <th>可借車輛</th>
+                    <th>可還車輛</th>
+                    <th>更新時間</th>
+                </tr>
+            </thead>
+            <tbody id="mybody">
+                <tr class="">
+                    <td data-th="店家編號"><span>001</span></td>
+                    <td data-th="店家圖片">
+                        <span>
+                            <img src="images/1084-536x354-grayscale.jpg" width="200px" alt="">
+                        </span>
+                    </td>
+                    <td data-th="店家名稱"><span>xxx</span></td>
+                    <td data-th="店家地址"><span>xxx</span></td>
+                    <td data-th="店家電話"><span>xxx</span></td>
+                    <td data-th="店家簡介">
+                        <span>
+                            空中基隆效率臨床沒有什麼，文件大小好友準備一陣不少你怎不來第二之中傷心傳說一顆監督室內，許多各級網際快車或者認真衛生一番過來不過以及網頁通常工廠，一隻感情用戶名閲讀試驗我都上有人生重量開關公開本網黑暗飲食，當天而來武器婚姻對面材料建材先進教育青春廣場根本。
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="css/jquery-4.0.0.js"></script>
+
+    <script>
+        // 主程式
+        $(function () {
+            console.log("hello world");
+
+            $("#mytitle").html("台北市youbike即時資訊");
+
+            //串接opendata
+            $.ajax({
+                type: "GET",
+                url: "css/youbike_immediate.json",
+                dataType: "json",
+                success: showdata,
+                error: function () {
+                    console.log("error - css/youbike_immediate.json");
+                }
+            });
+
+        });
+
+
+
+        function showdata(data) {
+            $("#mybody").empty();
+            console.log(data);
+            data.forEach(function (item) {
+                // console.log(item.Name);
+                // console.log("地址:" + item.City + item.Town + item.Address);
+
+                //資料防呆
+
+                let id = item.sno ? item.sno : "編號未知";
+                let name = item.sna ? item.sna : "名稱未知";
+                let address = item.sarea + item.ar;
+                if (!item.sarea || !item.ar) {
+                    address = "地址未知"
+                };
+                let total = item.Quantity ? item.Quantity : "總數未知";
+                let rent_num = item.available_rent_bikes ? item.available_rent_bikes : "可借數量未知";
+                let return_num = item.available_return_bikes ? item.available_return_bikes : "可歸還數量未知";
+                let updateTime = item.updateTime ? item.updateTime : "更新時間未知";
+
+                let str_html = `<tr class="">
+                    <td data-th="編號"><span>${id}</span></td>
+                    <td data-th="站點名稱"><span>${name}</span></td>
+                    <td data-th="站點地址"><span>${address}</span></td>
+                    <td data-th="車輛總數"><span>${total}</span></td>
+                    <td data-th="可借車輛"><span>${rent_num}</span></td>
+                    <td data-th="可還車輛"><span>${return_num}</span></td>
+                    <td data-th="更新時間"><span>${updateTime}</span>
+                    </td>
+                </tr>`;
+
+                $("#mybody").append(str_html);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

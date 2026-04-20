@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh.TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript練習</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/css_1.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <select name="" id="city" class="form-select form-select-lg">
+                        <option value="" class="fw-900 text-center" selected disabled>***選擇縣市***</option>
+                        <option value="">臺中市</option>
+                        <option value="">臺北市</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <select name="" id="area" class="form-select form-select-lg" disabled>
+                        <option value="" class="fw-900 text-center" selected disabled>***選擇鄉鎮區***</option>
+                        <option value="">西屯區</option>
+                        <option value="">南屯區</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-10 mt-3">
+                <table class="table table-bordered py-5">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>名稱</th>
+                            <th>地址</th>
+                            <th>電話</th>
+                            <th>簡介</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hostlist">
+                        <tr>
+                            <td>名稱</td>
+                            <td>地址</td>
+                            <td>電話</td>
+                            <td>簡介</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="css/bootstrap.bundle.min.js"></script>
+    <script src="css/jquery-4.0.0.js"></script>
+    <script src="css/AllData.json"></script>
+    <script src="css/CityCountyData.json"></script>
+    <script>
+
+        let selected_city;
+        let selected_area;
+
+        let CityCountyData; //儲存所有縣市資料
+        let HotelList; //儲存normalize後的資料
+
+        $(function () {
+            //取得縣市鄉鎮區資料
+            $.ajax({
+                type: "GET",
+                url: "css/CityCountyData.json",
+                dataType: "JSON",
+                success: function (data) {
+                    console.log(data);
+
+                    CityCountyData = data;
+
+                    $("#city").empty();
+                    $("#city").append(`<option value="" class="fw-900 text-center" selected disabled>***選擇縣市***</option>`);
+                    //產生縣市選單
+                    data.forEach(function (item) {
+                        const strHTML = `<option value="${item.CityName}">${item.CityName}</option>`;
+                        $("#city").append(strHTML);
+                    });
+
+
+
+                },
+                error: function () {
+                    console.log("error - css/CityCountyData.json");
+                }
+            });
+
+            //取得旅館資料
+            $.ajax({
+                type: "GET",
+                url: "css/HotelList.json",
+                dataType: "JSON",
+                success: function (data) {
+                    console.log(data.Hotels);
+
+                    HotelList = normalize(data.Hotels);
+                },
+                error: function () {
+                    console.log("error - css/HotelList.json");
+                }
+            });
+
+
+            $("#city").change(function () {
+                //console.log($(this).val());
+
+                selected_city = $(this).val();
+                //產生所選取的縣市的鄉鎮區列表
+                // console.log(CityCountyData.filter(function (item) {
+                //     return item.CityName === selected_city
+                // })[0].AreaList);
+
+
+                //產生縣市選單
+                $("#area").empty();
+                $("#area").append(`<option value="" class="fw-900 text-center" selected disabled>***選擇鄉鎮區***</option>`);
+
+                CityCountyData.filter(function (item) {
+                    return item.CityName === selected_city
+                })[0].AreaList.forEach(function (town) {
+                    
+                    const strHTML = `<option value="${town.AreaName}">${town.AreaName}</option>`;
+                    $("#area").append(strHTML);
+                });
+                
+                $("#area").prop("disabled", false);
+            });
+
+            $("#area").change(function () {
+                selected_area = $(this).val();
+
+                const result = HotelList.filter(function(item){
+                    return item.City === selected_city && item.Town === selected_area
+                });
+                
+                renderTable(result);
+            });
+
+        });
+
+
+        // name city town StreetAddress Telephones
+        function normalize(data) {
+            return data.map(function (item) {
+                const name = (item.HotelName ?? "").trim();
+                const city = (item.PostalAddress.City ?? "").trim();
+                const town = (item.PostalAddress.Town ?? "").trim();
+                const streetAddress = (item.PostalAddress.StreetAddress ?? "").trim();
+                const tel = (item.Telephones[0].Tel ?? "").trim();
+                const hostwords = (item.Description ?? "").trim();
+                return {
+                    Name: name === "" ? "未提供名字" : name,
+                    City: city === "" ? "未提供城市" : city,
+                    Town: town === "" ? "未提供鄉鎮區" : town,
+                    StreetAddress: streetAddress === "" ? "未提供地址" : streetAddress,
+                    Tel: tel === "" ? "未提供電話" : tel,
+                    Hostwords: hostwords === "" ? "未提供簡介" : hostwords
+
+                };
+            });
+        };
+
+        function renderTable(data) {
+            $("#hostlist").empty();
+            data.forEach(function (item) {
+                let strHTML = `<tr>
+                        <td>${item.Name}</td>
+                        <td>${item.City}${item.Town}${item.StreetAddress}</td>
+                        <td>${item.Tel}</td>
+                        <td>${item.Hostwords}</td>
+                    </tr>`;
+                $("#hostlist").append(strHTML);
+            });
+        };
+
+
+
+
+    </script>
+</body>
+
+</html>

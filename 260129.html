@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習2 CSS</title>
+    <link rel="stylesheet" href="css/css_1.css">
+
+    <style>
+        body{
+            background-color: var(--mycolor04);
+
+        }
+
+        .wrapper{
+            margin: 0 auto;
+            width: 1024px;
+
+        }
+
+        .wrapper .banner{
+            width: 100%;
+
+        }
+
+        nav{
+            background-color: var(--mycolor05);
+            text-align: center;
+
+        }
+
+        nav ul{
+            display: inline-block;
+
+        }
+
+        nav ul li{
+            float: left;
+            list-style-type: none;
+
+        }
+
+        nav ul li a{
+            display: block;
+            text-decoration: none;
+            padding: 5px 10px;
+            background-color: var(--mycolor06);
+            color: var(--mycolor07);
+            font-size: 20;
+            font-weight: 700;
+            margin: 0px 15px 0px 15px;
+            border-radius: 15px;
+            box-shadow: 2px 2px 2px 2px var(--mycolor08);
+
+        }
+
+        nav ul li a:hover{
+                background-color: var(--mycolor09);
+                color: var(--mycolor10);
+                box-shadow: 0px 0px 0px 0px var(--mycolor08);
+                transform: scale(1.1);
+                transition: transform 2s;
+        }
+
+        .content{
+            background-color: var(--mycolor10);
+            padding: 30px 50px;
+
+
+        }
+
+        .content h1{
+            text-align: center;
+            font-size: 30;
+            font-weight: 1000;
+            color: var(--mycolor11);
+        }
+
+        .content p{
+            text-align: left;
+
+        }
+
+        .content a{
+            display: block;
+            background-color: var(--mycolor12);
+            width: 80px;
+            height: 50px;
+            margin: 0 auto;
+            line-height: 50px;
+            text-align: center;
+            color: var(--mycolor13);
+            text-decoration: none;
+            border-radius: 15px;
+            box-shadow: 2px 2px 2px 2px var(--mycolor07);
+
+        }
+
+        .content a:hover{
+            background-color: var(--mycolor11);
+            box-shadow: 0px 0px 0px 0px var(--mycolor07);
+
+        }
+
+        .footer {
+            background-color: var(--mycolor09);
+            text-align: center;
+            color: var(--mycolor13);
+            padding: 1px 0px; 
+        }
+        
+        @media screen and (max-width: 1024px){
+            .wrapper{
+                width: 100%;
+
+            }
+
+            nav ul{
+                display: block;
+                
+            }
+
+            nav ul li{
+                width: 100%;
+
+            }
+
+            .content p{
+                font-size: 30px;
+                
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="banner"> 
+            <img src="https://picsum.photos/id/684/1024/200" alt="">
+            <nav>
+                <ul>
+                    <li><a href="">首頁</a></li>
+                    <li><a href="">最新資訊</a></li>
+                    <li><a href="">合作店家</a></li>
+                    <li><a href="">關於我們</a></li>
+                    <li><a href="">聯絡我們</a></li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="content"> 
+            <h1>歡迎光臨</h1>
+            <p>引導身體高手建議小區慢慢一身，請教不肯。</p>
+            <p>觀念隊伍出版沉默參加室內漸漸之間草魚天。</p>
+            <p>咱們到來理由專欄公里，漸漸電視台功夫為。</p>
+            <a href="">顯示更多</a>
+        </div>
+        <div class="footer">
+            <h1 class="title-04">123~</h1>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
